@@ -112,7 +112,7 @@ public class HubMain_Activity extends AppCompatActivity {
     //gnar is also a yordle
 
     // Do actually important stuff
-
+    ChampionHolder holder = new ChampionHolder();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
