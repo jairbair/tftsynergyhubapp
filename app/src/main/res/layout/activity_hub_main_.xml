@@ -42,15 +42,256 @@
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:fillViewport="true"
         app:layout_constraintBottom_toTopOf="@+id/dropratesButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/originButton">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" />
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/demon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Demons"
+                    android:textAlignment="center"
+                    android:textSize="24sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/elise"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:background="@android:color/transparent"
+                    android:elevation="0dp"
+                    android:padding="6dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/avatar_elise" />
+
+                <ImageButton
+                    android:id="@+id/varus"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:background="@android:color/transparent"
+                    android:elevation="0dp"
+                    android:padding="6dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/avatar_varus" />
+
+                <ImageButton
+                    android:id="@+id/aatrox"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:background="@android:color/transparent"
+                    android:elevation="0dp"
+                    android:padding="6dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/avatar_aatrox" />
+
+                <ImageButton
+                    android:id="@+id/evelynn"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:background="@android:color/transparent"
+                    android:elevation="0dp"
+                    android:padding="6dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/avatar_evelynn" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/morgana3"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:background="@android:color/transparent"
+                    android:elevation="0dp"
+                    android:padding="6dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/avatar_morgana" />
+
+                <ImageButton
+                    android:id="@+id/brand"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:background="@android:color/transparent"
+                    android:elevation="0dp"
+                    android:padding="6dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/avatar_brand" />
+
+                <ImageButton
+                    android:id="@+id/swain"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:background="@android:color/transparent"
+                    android:elevation="0dp"
+                    android:padding="6dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/avatar_swain" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/glacial"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Glacial"
+                    android:textAlignment="center"
+                    android:textSize="24sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/braum"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:background="@android:color/transparent"
+                    android:elevation="0dp"
+                    android:padding="6dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/avatar_braum" />
+
+                <ImageButton
+                    android:id="@+id/lissandra"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:background="@android:color/transparent"
+                    android:elevation="0dp"
+                    android:padding="6dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/avatar_lissandra" />
+
+                <ImageButton
+                    android:id="@+id/ashe"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:background="@android:color/transparent"
+                    android:elevation="0dp"
+                    android:padding="6dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/avatar_ashe" />
+
+                <ImageButton
+                    android:id="@+id/volibear"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:background="@android:color/transparent"
+                    android:elevation="0dp"
+                    android:padding="6dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/avatar_volibear" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/sejuani2"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:background="@android:color/transparent"
+                    android:elevation="0dp"
+                    android:padding="6dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/avatar_sejuani" />
+
+                <ImageButton
+                    android:id="@+id/anivia"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:background="@android:color/transparent"
+                    android:elevation="0dp"
+                    android:padding="6dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/avatar_anivia" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/hextech"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hextech"
+                    android:textAlignment="center"
+                    android:textSize="24sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/camille"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:background="@android:color/transparent"
+                    android:elevation="0dp"
+                    android:padding="6dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/avatar_camille" />
+
+                <ImageButton
+                    android:id="@+id/jayce"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:background="@android:color/transparent"
+                    android:elevation="0dp"
+                    android:padding="6dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/avatar_jayce" />
+
+                <ImageButton
+                    android:id="@+id/vi"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:background="@android:color/transparent"
+                    android:elevation="0dp"
+                    android:padding="6dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/avatar_vi" />
+
+                <ImageButton
+                    android:id="@+id/jinx"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:background="@android:color/transparent"
+                    android:elevation="0dp"
+                    android:padding="6dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/avatar_jinx" />
+
+            </TableRow>
+
+        </TableLayout>
     </ScrollView>
 
     <Button
