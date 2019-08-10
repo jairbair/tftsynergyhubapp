@@ -291,6 +291,65 @@
 
             </TableRow>
 
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/ninja"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ninja"
+                    android:textAlignment="center"
+                    android:textSize="24sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/shen"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:background="@android:color/transparent"
+                    android:elevation="0dp"
+                    android:padding="6dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/avatar_shen" />
+
+                <ImageButton
+                    android:id="@+id/zed"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:background="@android:color/transparent"
+                    android:elevation="0dp"
+                    android:padding="6dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/avatar_zed" />
+
+                <ImageButton
+                    android:id="@+id/kennen"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:background="@android:color/transparent"
+                    android:elevation="0dp"
+                    android:padding="6dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/avatar_kennen" />
+
+                <ImageButton
+                    android:id="@+id/akali"
+                    android:layout_width="92dp"
+                    android:layout_height="92dp"
+                    android:background="@android:color/transparent"
+                    android:elevation="0dp"
+                    android:padding="6dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/avatar_akali" />
+
+            </TableRow>
+
         </TableLayout>
     </ScrollView>
 
