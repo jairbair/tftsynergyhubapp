@@ -19,4 +19,7 @@ public class ChampionOrigins {
         return championArrayList.toString();
 
     }
+    public String getOriginName(){
+        return originName;
+    }
 }

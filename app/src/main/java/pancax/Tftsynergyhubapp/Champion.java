@@ -6,6 +6,7 @@ public class Champion {
     private String name;
 
 
+
     public Champion(String name, String[] classNames, String[] originNames) {
         this.name=name;
         this.className=classNames;

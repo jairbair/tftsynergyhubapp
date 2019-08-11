@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.style.TtsSpan;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -83,6 +85,7 @@ public class HubMain_Activity extends AppCompatActivity {
     static final Champion LUCIAN = new Champion("Lucian",new String[]{"Gunslinger"},new String[]{"Noble"});
     static final Champion KAYLE = new Champion("Kayle",new String[]{"Knight"},new String[]{"Noble"});
     //Ninja
+
     static final Champion SHEN = new Champion("Shen",new String[]{"Blademaster"},new String[]{"Ninja"});
     static final Champion KENNEN = new Champion("Kennen",new String[]{"Elementalist"},new String[]{"Ninja","Yordle"});
     static final Champion ZED = new Champion("Zed",new String[]{"Assassin"},new String[]{"Ninja"});
@@ -117,16 +120,21 @@ public class HubMain_Activity extends AppCompatActivity {
     //gnar is also a yordle
 
     // Do actually important stuff
-    ChampionHolder holder = new ChampionHolder();
+    static ChampionHolder holder = new ChampionHolder();
     TextView numberOfChampsInHolderText;
+    ListView championSelectorList;
+    ChampionOriginsAdapter adapterOrigins;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hub_main_);
         setupChampions();
         setupLists();
-
+        adapterOrigins = new ChampionOriginsAdapter(this,ORIGINS_ARRAY_LIST);
         numberOfChampsInHolderText = findViewById(R.id.numberOfChampsText);
+        championSelectorList = findViewById(R.id.championSelectorList);
+
+        championSelectorList.setAdapter(adapterOrigins);
 
     }
 
@@ -295,78 +303,6 @@ public class HubMain_Activity extends AppCompatActivity {
         CLASSES_ARRAY_LIST.add(SORCERER);
 
     }
-    public void onChampionButtonClicked(View v){
-        int buttonID = v.getId();
-        switch(buttonID){
-            case R.id.aatrox:{
-                if(holder.isChampionInList(AATROX)){
-                    holder.removeChampionFromList(AATROX);
-                    findViewById(R.id.AatroxHolderImage).setVisibility(GONE);
-                    updateHolder();
-                }
-                else{
-                    if(holder.addChampionToList(AATROX)) {
-                        findViewById(R.id.AatroxHolderImage).setVisibility(VISIBLE);
-                        updateHolder();
-                    }
-                }
-                break;
-            }
-            case R.id.varus:{
-                if(holder.isChampionInList(VARUS)){
-                    holder.removeChampionFromList(VARUS);
-                    findViewById(R.id.VarusHolderImage).setVisibility(GONE);
-                    updateHolder();
-                }
-                else{
-                    if(holder.addChampionToList(VARUS)) {
-                        findViewById(R.id.VarusHolderImage).setVisibility(VISIBLE);
-                        updateHolder();
-                    }
-                }
-                break;
-            }
-            case R.id.elise:{
-                if(holder.isChampionInList(ELISE)){
-                    holder.removeChampionFromList(ELISE);
-                    findViewById(R.id.EliseHolderImage).setVisibility(GONE);
-                    updateHolder();
-                }
-                else{
-                    if(holder.addChampionToList(ELISE)) {
-                        findViewById(R.id.EliseHolderImage).setVisibility(VISIBLE);
-                        updateHolder();
-                    }
-                }
-                break;
-            }
-        }
-    }
-    public void onChampionHolderButtonClicked(View v){
-        int buttonID = v.getId();
-
-        switch(buttonID){
-            case R.id.AatroxHolderImage:{
-                    holder.removeChampionFromList(AATROX);
-                    v.setVisibility(GONE);
-                    updateHolder();
-                break;
-            }
-            case R.id.VarusHolderImage:{
-                    holder.removeChampionFromList(VARUS);
-                    v.setVisibility(GONE);
-                    updateHolder();
-                break;
-            }
-            case R.id.EliseHolderImage:{
-                holder.removeChampionFromList(ELISE);
-                v.setVisibility(GONE);
-                updateHolder();
-                break;
-            }
-        }
-
-    }
     public void updateHolder(){
         ArrayList<Champion> currentList = holder.getCurrentChampionList();
         int demonCount=0;
@@ -402,4 +338,5 @@ public class HubMain_Activity extends AppCompatActivity {
     public void updateNumberOfChampsInHolderText(ArrayList<Champion> currentList){
         numberOfChampsInHolderText.setText(currentList.size()+"/10");
     }
+
 }

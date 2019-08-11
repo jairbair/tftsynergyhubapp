@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class ChampionHolder {
     private ArrayList<Champion> currentChampionList;
+
     public ChampionHolder(){
         currentChampionList = new ArrayList<>(0);
     }
@@ -25,6 +26,19 @@ public class ChampionHolder {
         if(currentChampionList.size()<10) {
             currentChampionList.add(champion);
             return true;
+        }
+        return false;
+    }
+    public boolean addChampionToList(String championName){
+        if(currentChampionList.size()<10) {
+            for(ChampionOrigins x:HubMain_Activity.ORIGINS_ARRAY_LIST){
+                for(Champion z: x.getList()){
+                    if(z.getName().equals(championName)){
+                        currentChampionList.add(z);
+                        return true;
+                    }
+                }
+            }
         }
         return false;
     }
