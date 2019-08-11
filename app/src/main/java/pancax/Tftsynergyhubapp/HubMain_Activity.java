@@ -3,18 +3,12 @@ package pancax.Tftsynergyhubapp;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.style.TtsSpan;
+
 import android.util.Log;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-
-import static android.view.View.GONE;
-import static android.view.View.VISIBLE;
 
 
 public class HubMain_Activity extends AppCompatActivity {
