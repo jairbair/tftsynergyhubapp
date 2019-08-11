@@ -6,15 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".HubMain_Activity">
 
-    <TextView
-        android:id="@+id/championsSelectedText"
+    <LinearLayout
+        android:id="@+id/headerLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/Champions"
-        android:textAlignment="viewStart"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/championSelectedLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/championsSelectedText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/Champions"
+            android:textAlignment="viewStart" />
+
+        <TextView
+            android:id="@+id/numberOfChampsText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/ChampionHolderNumber"
+            android:textAlignment="textEnd" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/championSelectedLayout"
@@ -25,8 +42,42 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/championsSelectedText">
+        app:layout_constraintTop_toBottomOf="@+id/headerLayout"
+        android:gravity="fill">
 
+        <ImageButton
+            android:id="@+id/AatroxHolderImage"
+            style="@style/Widget.AppCompat.ImageButton"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:onClick="onChampionHolderButtonClicked"
+            android:scaleType="fitStart"
+            android:visibility="gone"
+            app:srcCompat="@drawable/avatar_aatrox"
+            tools:srcCompat="@drawable/avatar_aatrox" />
+
+        <ImageButton
+            android:id="@+id/VarusHolderImage"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:onClick="onChampionHolderButtonClicked"
+            android:scaleType="fitStart"
+            android:visibility="gone"
+            app:srcCompat="@drawable/avatar_varus"
+            tools:srcCompat="@drawable/avatar_varus" />
+
+        <ImageButton
+            android:id="@+id/EliseHolderImage"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:onClick="onChampionHolderButtonClicked"
+            android:scaleType="fitStart"
+            android:visibility="gone"
+            app:srcCompat="@drawable/avatar_elise"
+            tools:srcCompat="@drawable/avatar_elise" />
     </LinearLayout>
 
     <Button
@@ -37,6 +88,15 @@
         android:text="@string/OriginButtonString"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/classButton"
+        app:layout_constraintTop_toBottomOf="@+id/championSelectedLayout" />
+
+    <Button
+        android:id="@+id/classButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/ClassButtonStirng"
+        app:layout_constraintEnd_toStartOf="@+id/originButton"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/championSelectedLayout" />
 
     <ScrollView
@@ -75,6 +135,7 @@
                     android:layout_height="92dp"
                     android:background="@android:color/transparent"
                     android:elevation="0dp"
+                    android:onClick="onChampionButtonClicked"
                     android:padding="6dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/avatar_elise" />
@@ -85,6 +146,7 @@
                     android:layout_height="92dp"
                     android:background="@android:color/transparent"
                     android:elevation="0dp"
+                    android:onClick="onChampionButtonClicked"
                     android:padding="6dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/avatar_varus" />
@@ -95,6 +157,7 @@
                     android:layout_height="92dp"
                     android:background="@android:color/transparent"
                     android:elevation="0dp"
+                    android:onClick="onChampionButtonClicked"
                     android:padding="6dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/avatar_aatrox" />
@@ -352,15 +415,6 @@
 
         </TableLayout>
     </ScrollView>
-
-    <Button
-        android:id="@+id/classButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/ClassButtonStirng"
-        app:layout_constraintEnd_toStartOf="@+id/originButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/championSelectedLayout" />
 
     <Button
         android:id="@+id/teamBuilderButton"

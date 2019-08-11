@@ -5,4 +5,5 @@
     <string name="ClassButtonStirng">Class</string>
     <string name="TeamBuilderButtonString">Team Builder</string>
     <string name="DropRatesButtonString">Drop Rates</string>
+    <string name="ChampionHolderNumber">0/10</string>
 </resources>

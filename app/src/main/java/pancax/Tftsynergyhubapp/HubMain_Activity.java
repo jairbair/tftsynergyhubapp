@@ -5,9 +5,14 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.style.TtsSpan;
 import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 
 
 public class HubMain_Activity extends AppCompatActivity {
@@ -113,12 +118,15 @@ public class HubMain_Activity extends AppCompatActivity {
 
     // Do actually important stuff
     ChampionHolder holder = new ChampionHolder();
+    TextView numberOfChampsInHolderText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hub_main_);
         setupChampions();
         setupLists();
+
+        numberOfChampsInHolderText = findViewById(R.id.numberOfChampsText);
 
     }
 
@@ -286,5 +294,112 @@ public class HubMain_Activity extends AppCompatActivity {
         CLASSES_ARRAY_LIST.add(SHAPESHIFTER);
         CLASSES_ARRAY_LIST.add(SORCERER);
 
+    }
+    public void onChampionButtonClicked(View v){
+        int buttonID = v.getId();
+        switch(buttonID){
+            case R.id.aatrox:{
+                if(holder.isChampionInList(AATROX)){
+                    holder.removeChampionFromList(AATROX);
+                    findViewById(R.id.AatroxHolderImage).setVisibility(GONE);
+                    updateHolder();
+                }
+                else{
+                    if(holder.addChampionToList(AATROX)) {
+                        findViewById(R.id.AatroxHolderImage).setVisibility(VISIBLE);
+                        updateHolder();
+                    }
+                }
+                break;
+            }
+            case R.id.varus:{
+                if(holder.isChampionInList(VARUS)){
+                    holder.removeChampionFromList(VARUS);
+                    findViewById(R.id.VarusHolderImage).setVisibility(GONE);
+                    updateHolder();
+                }
+                else{
+                    if(holder.addChampionToList(VARUS)) {
+                        findViewById(R.id.VarusHolderImage).setVisibility(VISIBLE);
+                        updateHolder();
+                    }
+                }
+                break;
+            }
+            case R.id.elise:{
+                if(holder.isChampionInList(ELISE)){
+                    holder.removeChampionFromList(ELISE);
+                    findViewById(R.id.EliseHolderImage).setVisibility(GONE);
+                    updateHolder();
+                }
+                else{
+                    if(holder.addChampionToList(ELISE)) {
+                        findViewById(R.id.EliseHolderImage).setVisibility(VISIBLE);
+                        updateHolder();
+                    }
+                }
+                break;
+            }
+        }
+    }
+    public void onChampionHolderButtonClicked(View v){
+        int buttonID = v.getId();
+
+        switch(buttonID){
+            case R.id.AatroxHolderImage:{
+                    holder.removeChampionFromList(AATROX);
+                    v.setVisibility(GONE);
+                    updateHolder();
+                break;
+            }
+            case R.id.VarusHolderImage:{
+                    holder.removeChampionFromList(VARUS);
+                    v.setVisibility(GONE);
+                    updateHolder();
+                break;
+            }
+            case R.id.EliseHolderImage:{
+                holder.removeChampionFromList(ELISE);
+                v.setVisibility(GONE);
+                updateHolder();
+                break;
+            }
+        }
+
+    }
+    public void updateHolder(){
+        ArrayList<Champion> currentList = holder.getCurrentChampionList();
+        int demonCount=0;
+        for(Champion i: currentList){
+            for(String name:i.getOriginName()){
+                switch(name){
+                    case "Demon":{demonCount++;break;}
+                }
+            }
+            for(String className:i.getClassName()){
+                switch(className){
+                    /* start adding cases for classes here*/
+                }
+            }
+
+        }
+        checkSynergies(demonCount);
+        //update Champions in holder text
+        updateNumberOfChampsInHolderText(currentList);
+
+
+    }
+    public void checkSynergies(int demonCount /*add all the synergies into this passer*/){
+
+        if(demonCount==6){
+
+        }else if(demonCount==4){
+
+        }else if(demonCount==2){
+            Log.d("demonCountistwo","twoboy");
+        }
+    }
+    public void updateNumberOfChampsInHolderText(ArrayList<Champion> currentList){
+        numberOfChampsInHolderText.setText(currentList.size()+"/10");
     }
 }

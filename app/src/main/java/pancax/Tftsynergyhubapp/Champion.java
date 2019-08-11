@@ -8,8 +8,8 @@ public class Champion {
 
     public Champion(String name, String[] classNames, String[] originNames) {
         this.name=name;
-        this.className=className;
-        this.originName=originName;
+        this.className=classNames;
+        this.originName=originNames;
     }
     public String getName(){
         return this.name;
