@@ -23,11 +23,12 @@ public class ChampionOriginsAdapter extends ArrayAdapter<ChampionOrigins> {
 
     ArrayList<ChampionOrigins> list;
     Context mContext;
-    public ChampionOriginsAdapter(@NonNull Context context, @NonNull ArrayList<ChampionOrigins> objects) {
+    Resources r;
+    public ChampionOriginsAdapter(@NonNull Context context, @NonNull ArrayList<ChampionOrigins> objects,Resources r) {
         super(context, R.layout.champion_set_layout, objects);
         list= objects;
         mContext = context;
-
+        this.r=r;
     }
 
     @NonNull
@@ -55,9 +56,9 @@ public class ChampionOriginsAdapter extends ArrayAdapter<ChampionOrigins> {
                     }
                 });
                 layoutButtons.addView(button);
-                String nameThing="avatar_"+champions.get(i).getName().toLowerCase().replaceAll("[^a-z]","")+".png";
-
-                Log.d("CODEIDTHING"," " + nameThing);
+                String nameThing="avatar_"+champions.get(i).getName().toLowerCase().replaceAll("[^a-z]","")+"";
+                int id = r.getIdentifier(nameThing,"drawable",mContext.getPackageName());
+                button.setImageDrawable(r.getDrawable(id,mContext.getTheme()));
             }
             convertView.setHasTransientState(true);
         }

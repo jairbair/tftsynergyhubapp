@@ -130,7 +130,7 @@ public class HubMain_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_hub_main_);
         setupChampions();
         setupLists();
-        adapterOrigins = new ChampionOriginsAdapter(this,ORIGINS_ARRAY_LIST);
+        adapterOrigins = new ChampionOriginsAdapter(this,ORIGINS_ARRAY_LIST,getResources());
         numberOfChampsInHolderText = findViewById(R.id.numberOfChampsText);
         championSelectorList = findViewById(R.id.championSelectorList);
 
