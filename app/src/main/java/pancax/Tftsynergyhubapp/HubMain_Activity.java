@@ -1,10 +1,15 @@
 package pancax.Tftsynergyhubapp;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -114,20 +119,21 @@ public class HubMain_Activity extends AppCompatActivity {
     //gnar is also a yordle
 
     // Do actually important stuff
-    static ChampionHolder holder = new ChampionHolder();
+    ChampionHolder holder = new ChampionHolder();
     TextView numberOfChampsInHolderText;
     ListView championSelectorList;
     ChampionOriginsAdapter adapterOrigins;
+    LinearLayout championSelectedLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hub_main_);
         setupChampions();
         setupLists();
-        adapterOrigins = new ChampionOriginsAdapter(this,ORIGINS_ARRAY_LIST,getResources());
+        adapterOrigins = new ChampionOriginsAdapter(this,ORIGINS_ARRAY_LIST,getResources(),this);
         numberOfChampsInHolderText = findViewById(R.id.numberOfChampsText);
         championSelectorList = findViewById(R.id.championSelectorList);
-
+        championSelectedLayout = findViewById(R.id.championSelectedLayout);
         championSelectorList.setAdapter(adapterOrigins);
 
     }
@@ -316,8 +322,31 @@ public class HubMain_Activity extends AppCompatActivity {
         checkSynergies(demonCount);
         //update Champions in holder text
         updateNumberOfChampsInHolderText(currentList);
+        updateChampionImages(currentList);
 
+    }
+    public void updateChampionImages(ArrayList<Champion> champions){
+        championSelectedLayout.removeAllViewsInLayout();
+        Context layoutContext = championSelectedLayout.getContext();
+        for(int i=0;i<champions.size();i++){
+            ImageButton button = new ImageButton(layoutContext);
+            button.setTag(champions.get(i).getName());
+            button.setId(View.generateViewId());
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String name= (String)(view.getTag());
+                    holder.removeChampionFromList(name);
+                    updateHolder();
+                }
+            });
+            championSelectedLayout.addView(button);
+            ViewGroup.LayoutParams buttonParams = button.getLayoutParams();
 
+            String nameThing="avatar_"+champions.get(i).getName().toLowerCase().replaceAll("[^a-z]","")+"";
+            int id = getResources().getIdentifier(nameThing,"drawable",layoutContext.getPackageName());
+            button.setImageDrawable(getResources().getDrawable(id,layoutContext.getTheme()));
+        }
     }
     public void checkSynergies(int demonCount /*add all the synergies into this passer*/){
 

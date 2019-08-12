@@ -34,10 +34,23 @@ public class ChampionHolder {
             for(ChampionOrigins x:HubMain_Activity.ORIGINS_ARRAY_LIST){
                 for(Champion z: x.getList()){
                     if(z.getName().equals(championName)){
-                        currentChampionList.add(z);
-                        return true;
+                        if(!isChampionInList(z)) {
+                            currentChampionList.add(z);
+                            return true;
+                        }
+                        else
+                            return false;
                     }
                 }
+            }
+        }
+        return false;
+    }
+    public boolean removeChampionFromList(String name){
+        for(int i=0;i<currentChampionList.size();i++){
+            if(currentChampionList.get(i).getName().equals(name)){
+                currentChampionList.remove(i);
+                return true;
             }
         }
         return false;

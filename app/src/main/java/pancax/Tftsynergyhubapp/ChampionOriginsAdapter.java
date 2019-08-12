@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,11 +22,13 @@ public class ChampionOriginsAdapter extends ArrayAdapter<ChampionOrigins> {
     ArrayList<ChampionOrigins> list;
     Context mContext;
     Resources r;
-    public ChampionOriginsAdapter(@NonNull Context context, @NonNull ArrayList<ChampionOrigins> objects,Resources r) {
+    HubMain_Activity  mainActivityRef;
+    public ChampionOriginsAdapter(@NonNull Context context, @NonNull ArrayList<ChampionOrigins> objects, Resources r, HubMain_Activity activity) {
         super(context, R.layout.champion_set_layout, objects);
         list= objects;
         mContext = context;
         this.r=r;
+        mainActivityRef=activity;
     }
 
     @NonNull
@@ -48,10 +52,14 @@ public class ChampionOriginsAdapter extends ArrayAdapter<ChampionOrigins> {
                     @Override
                     public void onClick(View view) {
                         String name= (String)(view.getTag());
-                        HubMain_Activity.holder.addChampionToList(name);
+                        mainActivityRef.holder.addChampionToList(name);
+                        Log.d("Holdercurrent", mainActivityRef.holder.getCurrentChampionList().toString());
+                        mainActivityRef.updateHolder();
                     }
                 });
                 layoutButtons.addView(button);
+                ViewGroup.LayoutParams buttonParams = button.getLayoutParams();
+
                 String nameThing="avatar_"+champions.get(i).getName().toLowerCase().replaceAll("[^a-z]","")+"";
                 int id = r.getIdentifier(nameThing,"drawable",mContext.getPackageName());
                 button.setImageDrawable(r.getDrawable(id,mContext.getTheme()));
