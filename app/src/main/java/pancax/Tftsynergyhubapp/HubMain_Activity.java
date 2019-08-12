@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -121,21 +122,21 @@ public class HubMain_Activity extends AppCompatActivity {
     // Do actually important stuff
     ChampionHolder holder = new ChampionHolder();
     TextView numberOfChampsInHolderText;
-    ListView championSelectorList;
-    ChampionOriginsAdapter adapterOrigins;
     LinearLayout championSelectedLayout;
+    LinearLayout championSelectorLayout;
+    boolean originOrClass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hub_main_);
         setupChampions();
         setupLists();
-        adapterOrigins = new ChampionOriginsAdapter(this,ORIGINS_ARRAY_LIST,getResources(),this);
         numberOfChampsInHolderText = findViewById(R.id.numberOfChampsText);
-        championSelectorList = findViewById(R.id.championSelectorList);
+        championSelectorLayout = findViewById(R.id.championSelectorLayout);
         championSelectedLayout = findViewById(R.id.championSelectedLayout);
-        championSelectorList.setAdapter(adapterOrigins);
-
+        //true for origin false for class
+        originOrClass=true;
+        makeChampionSelectorLayout();
     }
 
     private void setupChampions(){
@@ -361,5 +362,45 @@ public class HubMain_Activity extends AppCompatActivity {
     public void updateNumberOfChampsInHolderText(ArrayList<Champion> currentList){
         numberOfChampsInHolderText.setText(currentList.size()+"/10");
     }
+    public void makeChampionSelectorLayout(){
+        //true for origin false for class
+        if(originOrClass){
+            for(int i=0;i<ORIGINS_ARRAY_LIST.size();i++){
+                LinearLayout originView = new LinearLayout(championSelectorLayout.getContext());
+                ChampionOrigins origin = ORIGINS_ARRAY_LIST.get(i);
+                ArrayList<Champion> champions = origin.getList();
 
+                TextView originName = new TextView(originView.getContext());
+                originName.setText(origin.getOriginName());
+                championSelectorLayout.addView(originName);
+
+                makeOriginViewParams(originView);
+                for(int j=0;j<champions.size();j++){
+                    ImageButton button = new ImageButton(originView.getContext());
+                    button.setTag(champions.get(j).getName());
+                    button.setId(View.generateViewId());
+                    button.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            String name= (String)(view.getTag());
+                            holder.addChampionToList(name);
+                            Log.d("Holdercurrent", holder.getCurrentChampionList().toString());
+                            updateHolder();
+                        }
+                    });
+                    originView.addView(button);
+                    ViewGroup.LayoutParams buttonParams = button.getLayoutParams();
+
+                    String nameThing="avatar_"+champions.get(j).getName().toLowerCase().replaceAll("[^a-z]","")+"";
+                    int id = getResources().getIdentifier(nameThing,"drawable",originView.getContext().getPackageName());
+                    button.setImageDrawable(getResources().getDrawable(id,originView.getContext().getTheme()));
+                }
+                championSelectorLayout.addView(originView);
+            }
+        }
+    }
+    public void makeOriginViewParams(LinearLayout originView){
+        originView.setGravity(Gravity.FILL);
+        originView.setOrientation(LinearLayout.HORIZONTAL);
+    }
 }
