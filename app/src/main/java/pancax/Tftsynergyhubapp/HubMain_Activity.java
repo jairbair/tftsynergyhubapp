@@ -3,6 +3,7 @@ package pancax.Tftsynergyhubapp;
 
 import android.content.Context;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -342,6 +343,7 @@ public class HubMain_Activity extends AppCompatActivity {
             ImageButton button = new ImageButton(layoutContext);
             button.setTag(champions.get(i).getName());
             button.setId(View.generateViewId());
+            button.setBackgroundColor(Color.TRANSPARENT);
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -381,12 +383,15 @@ public class HubMain_Activity extends AppCompatActivity {
                 TextView originName = new TextView(originView.getContext());
                 originName.setText(origin.getOriginName());
                 originSelectorLayout.addView(originName);
+                LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams(80, 80);
+                buttonParams.setMargins(8,0,8,0);
 
                 makeViewParams(originView);
                 for(int j=0;j<champions.size();j++){
                     ImageButton button = new ImageButton(originView.getContext());
                     button.setTag(champions.get(j).getName());
                     button.setId(View.generateViewId());
+                    button.setBackgroundColor(Color.TRANSPARENT);
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -402,12 +407,11 @@ public class HubMain_Activity extends AppCompatActivity {
                             }
                         }
                     });
-                    originView.addView(button);
-                    ViewGroup.LayoutParams buttonParams = button.getLayoutParams();
+                    originView.addView(button,buttonParams);
 
                     String nameThing="avatar_"+champions.get(j).getName().toLowerCase().replaceAll("[^a-z]","")+"";
                     int id = getResources().getIdentifier(nameThing,"drawable",originView.getContext().getPackageName());
-                    button.setImageDrawable(getResources().getDrawable(id,originView.getContext().getTheme()));
+                    button.setBackground(getResources().getDrawable(id,originView.getContext().getTheme()));
                 }
                 originSelectorLayout.addView(originView);
         }
@@ -426,10 +430,13 @@ public class HubMain_Activity extends AppCompatActivity {
             //makeViewParams(classView);
             classView.setOrientation(LinearLayout.HORIZONTAL);
             classView.setGravity(Gravity.FILL);
+            LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams(80, 80);
+            buttonParams.setMargins(8,0,8,0);
             for(int j=0;j<champions.size();j++){
                 ImageButton button = new ImageButton(classView.getContext());
                 button.setTag(champions.get(j).getName());
                 button.setId(View.generateViewId());
+                button.setBackgroundColor(Color.TRANSPARENT);
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -445,11 +452,11 @@ public class HubMain_Activity extends AppCompatActivity {
                         }
                     }
                 });
-                classView.addView(button);
-                ViewGroup.LayoutParams buttonParams = button.getLayoutParams();
+                classView.addView(button,buttonParams);
+
                 String nameThing="avatar_"+champions.get(j).getName().toLowerCase().replaceAll("[^a-z]","")+"";
                 int id = getResources().getIdentifier(nameThing,"drawable",classView.getContext().getPackageName());
-                button.setImageDrawable(getResources().getDrawable(id,classView.getContext().getTheme()));
+                button.setBackground(getResources().getDrawable(id,classView.getContext().getTheme()));
             }
             classSelectorLayout.addView(classView);
         }
