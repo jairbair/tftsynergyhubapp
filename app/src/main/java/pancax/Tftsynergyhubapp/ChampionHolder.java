@@ -29,6 +29,14 @@ public class ChampionHolder {
         }
         return false;
     }
+    public boolean isChampionInList(String name){
+        for(int i=0;i<currentChampionList.size();i++){
+            if(name.equals(currentChampionList.get(i).getName())){
+                return true;
+            }
+        }
+        return false;
+    }
     public boolean addChampionToList(String championName){
         if(currentChampionList.size()<10) {
             for(ChampionOrigins x:HubMain_Activity.ORIGINS_ARRAY_LIST){

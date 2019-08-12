@@ -48,16 +48,17 @@
     </LinearLayout>
 
     <ScrollView
-        android:id="@+id/championSelectorLayoutScroll"
+        android:id="@+id/originSelectorLayoutScroll"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/dropratesButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/originButton">
 
         <LinearLayout
-            android:id="@+id/championSelectorLayout"
+            android:id="@+id/originSelectorLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" />
@@ -68,6 +69,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:onClick="onOriginButtonClicked"
         android:text="@string/OriginButtonString"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/classButton"
@@ -77,6 +79,7 @@
         android:id="@+id/classButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:onClick="onClassButtonClicked"
         android:text="@string/ClassButtonStirng"
         app:layout_constraintEnd_toStartOf="@+id/originButton"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,5 +103,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/teamBuilderButton" />
+
+    <ScrollView
+        android:id="@+id/classSelectorLayoutScroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/dropratesButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/originButton">
+
+        <LinearLayout
+            android:id="@+id/classSelectorLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

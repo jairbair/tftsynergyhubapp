@@ -2,6 +2,7 @@ package pancax.Tftsynergyhubapp;
 
 
 import android.content.Context;
+
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -11,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -123,7 +124,10 @@ public class HubMain_Activity extends AppCompatActivity {
     ChampionHolder holder = new ChampionHolder();
     TextView numberOfChampsInHolderText;
     LinearLayout championSelectedLayout;
-    LinearLayout championSelectorLayout;
+    LinearLayout originSelectorLayout;
+    LinearLayout classSelectorLayout;
+    ScrollView originSelectorLayoutScroll;
+    ScrollView classSelectorLayoutScroll;
     boolean originOrClass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,11 +136,16 @@ public class HubMain_Activity extends AppCompatActivity {
         setupChampions();
         setupLists();
         numberOfChampsInHolderText = findViewById(R.id.numberOfChampsText);
-        championSelectorLayout = findViewById(R.id.championSelectorLayout);
+        originSelectorLayout = findViewById(R.id.originSelectorLayout);
         championSelectedLayout = findViewById(R.id.championSelectedLayout);
+        classSelectorLayout = findViewById(R.id.classSelectorLayout);
+        originSelectorLayoutScroll = findViewById(R.id.originSelectorLayoutScroll);
+        classSelectorLayoutScroll = findViewById(R.id.classSelectorLayoutScroll);
         //true for origin false for class
-        originOrClass=true;
-        makeChampionSelectorLayout();
+        originOrClass=false;
+        makeOriginSelectorLayout();
+        makeClassSelectorLayout();
+
     }
 
     private void setupChampions(){
@@ -362,19 +371,18 @@ public class HubMain_Activity extends AppCompatActivity {
     public void updateNumberOfChampsInHolderText(ArrayList<Champion> currentList){
         numberOfChampsInHolderText.setText(currentList.size()+"/10");
     }
-    public void makeChampionSelectorLayout(){
-        //true for origin false for class
-        if(originOrClass){
+    public void makeOriginSelectorLayout(){
+
             for(int i=0;i<ORIGINS_ARRAY_LIST.size();i++){
-                LinearLayout originView = new LinearLayout(championSelectorLayout.getContext());
+                LinearLayout originView = new LinearLayout(originSelectorLayout.getContext());
                 ChampionOrigins origin = ORIGINS_ARRAY_LIST.get(i);
                 ArrayList<Champion> champions = origin.getList();
 
                 TextView originName = new TextView(originView.getContext());
                 originName.setText(origin.getOriginName());
-                championSelectorLayout.addView(originName);
+                originSelectorLayout.addView(originName);
 
-                makeOriginViewParams(originView);
+                makeViewParams(originView);
                 for(int j=0;j<champions.size();j++){
                     ImageButton button = new ImageButton(originView.getContext());
                     button.setTag(champions.get(j).getName());
@@ -383,9 +391,15 @@ public class HubMain_Activity extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
                             String name= (String)(view.getTag());
-                            holder.addChampionToList(name);
-                            Log.d("Holdercurrent", holder.getCurrentChampionList().toString());
-                            updateHolder();
+                            if(!holder.isChampionInList(name)) {
+                                holder.addChampionToList(name);
+                                Log.d("Holdercurrent", holder.getCurrentChampionList().toString());
+                                updateHolder();
+                            }
+                            else{
+                                holder.removeChampionFromList(name);
+                                updateHolder();
+                            }
                         }
                     });
                     originView.addView(button);
@@ -395,12 +409,62 @@ public class HubMain_Activity extends AppCompatActivity {
                     int id = getResources().getIdentifier(nameThing,"drawable",originView.getContext().getPackageName());
                     button.setImageDrawable(getResources().getDrawable(id,originView.getContext().getTheme()));
                 }
-                championSelectorLayout.addView(originView);
-            }
+                originSelectorLayout.addView(originView);
         }
     }
-    public void makeOriginViewParams(LinearLayout originView){
-        originView.setGravity(Gravity.FILL);
-        originView.setOrientation(LinearLayout.HORIZONTAL);
+    public void makeClassSelectorLayout(){
+
+        for(int i=0;i<CLASSES_ARRAY_LIST.size();i++){
+            LinearLayout classView = new LinearLayout(classSelectorLayout.getContext());
+            ChampionClasses classes = CLASSES_ARRAY_LIST.get(i);
+            ArrayList<Champion> champions = classes.getList();
+
+            TextView className = new TextView(classView.getContext());
+            className.setText(classes.getName());
+            classSelectorLayout.addView(className);
+
+            //makeViewParams(classView);
+            classView.setOrientation(LinearLayout.HORIZONTAL);
+            classView.setGravity(Gravity.FILL);
+            for(int j=0;j<champions.size();j++){
+                ImageButton button = new ImageButton(classView.getContext());
+                button.setTag(champions.get(j).getName());
+                button.setId(View.generateViewId());
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String name= (String)(view.getTag());
+                        if(!holder.isChampionInList(name)) {
+                            holder.addChampionToList(name);
+                            Log.d("Holdercurrent", holder.getCurrentChampionList().toString());
+                            updateHolder();
+                        }
+                        else{
+                            holder.removeChampionFromList(name);
+                            updateHolder();
+                        }
+                    }
+                });
+                classView.addView(button);
+                ViewGroup.LayoutParams buttonParams = button.getLayoutParams();
+                String nameThing="avatar_"+champions.get(j).getName().toLowerCase().replaceAll("[^a-z]","")+"";
+                int id = getResources().getIdentifier(nameThing,"drawable",classView.getContext().getPackageName());
+                button.setImageDrawable(getResources().getDrawable(id,classView.getContext().getTheme()));
+            }
+            classSelectorLayout.addView(classView);
+        }
+    }
+    public void makeViewParams(LinearLayout view){
+        view.setGravity(Gravity.FILL);
+        view.setOrientation(LinearLayout.HORIZONTAL);
+    }
+    public void onClassButtonClicked(View v){
+        originSelectorLayoutScroll.setVisibility(View.INVISIBLE);
+        classSelectorLayoutScroll.setVisibility(View.VISIBLE);
+    }
+    public void onOriginButtonClicked(View v){
+
+        classSelectorLayoutScroll.setVisibility(View.INVISIBLE);
+        originSelectorLayoutScroll.setVisibility(View.VISIBLE);
     }
 }
