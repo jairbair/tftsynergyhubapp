@@ -19,7 +19,7 @@
     <string name="glacial_4_text">(%1d) - 35%% chance to stun on hit for 2s</string>
     <string name="glacial_6_text">(%1d) - 45%% chance to stun on hit for 2s</string>
 
-    <string name="robot_1_text">(%1d) - Robots start combat with full mana</string>
+    <string name="robot_1_text">(%1d) - Robots start combat with full Mana</string>
 
     <string name="imperial_2_text">(%1d) - Double damage for 1 Imperial</string>
     <string name="imperial_4_text">(%1d) - Double damage for all Imperials</string>
