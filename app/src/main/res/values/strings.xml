@@ -7,68 +7,68 @@
     <string name="DropRatesButtonString">Drop Rates</string>
     <string name="ChampionHolderNumber">0/10\t\t</string>
 
-    <string name="demon_6_text">(%1d) - Attacks from Demons have a 60%% chance to mana-burn</string>
-    <string name="demon_4_text">(%1d) - Attacks from Demons have a 40%% chance to mana-burn</string>
-    <string name="demon_2_text">(%1d) - Attacks from Demons have a 20%% chance to mana-burn</string>
+    <string name="demon_6_text">(%1d) Demon - Attacks from Demons have a 60%% chance to mana-burn</string>
+    <string name="demon_4_text">(%1d) Demon - Attacks from Demons have a 40%% chance to mana-burn</string>
+    <string name="demon_2_text">(%1d) Demon - Attacks from Demons have a 20%% chance to mana-burn</string>
 
-    <string name="dragon_2_text">(%1d) - Dragons are immune to Magic Damage</string>
+    <string name="dragon_2_text">(%1d) Dragon - Dragons are immune to Magic Damage</string>
 
-    <string name="exile_1_text">(%1d) - Exiles gain 100%% of HP as a shield when placed adjacent to no other units</string>
+    <string name="exile_1_text">(%1d) Exile - Exile\'s gain 100%% of HP as a shield when placed adjacent to no other units</string>
 
-    <string name="glacial_2_text">(%1d) - 25%% chance to stun on hit for 2s</string>
-    <string name="glacial_4_text">(%1d) - 35%% chance to stun on hit for 2s</string>
-    <string name="glacial_6_text">(%1d) - 45%% chance to stun on hit for 2s</string>
+    <string name="glacial_2_text">(%1d) Glacial - 25%% chance to stun on hit for 2s</string>
+    <string name="glacial_4_text">(%1d) Glacial - 35%% chance to stun on hit for 2s</string>
+    <string name="glacial_6_text">(%1d) Glacial - 45%% chance to stun on hit for 2s</string>
 
-    <string name="robot_1_text">(%1d) - Robots start combat with full Mana</string>
+    <string name="robot_1_text">(%1d) Robots - Robots start combat with full Mana</string>
 
-    <string name="imperial_2_text">(%1d) - Double damage for 1 Imperial</string>
-    <string name="imperial_4_text">(%1d) - Double damage for all Imperials</string>
+    <string name="imperial_2_text">(%1d) Imperial - Double damage for 1 Imperial</string>
+    <string name="imperial_4_text">(%1d) Imperial - Double damage for all Imperials</string>
 
-    <string name="noble_3_text">(%1d) - +100 Armor and heal on hit for a random ally</string>
-    <string name="noble_6_text">(%1d) - +100 Armor and heal on hit for team</string>
+    <string name="noble_3_text">(%1d) Noble - +100 Armor and heal on hit for a random ally</string>
+    <string name="noble_6_text">(%1d) Noble - +100 Armor and heal on hit for team</string>
 
-    <string name="ninja_1_text">(%1d) - +40%% attack damage for your Ninjas</string>
-    <string name="ninja_4_text">(%1d) - +60%% attack damage for your Ninjas</string>
+    <string name="ninja_1_text">(%1d) Ninja - +40%% attack damage for your Ninjas</string>
+    <string name="ninja_4_text">(%1d) Ninja - +60%% attack damage for your Ninjas</string>
 
-    <string name="pirate_3_text">(%1d) - Chance to get extra gold on PVP rounds</string>
+    <string name="pirate_3_text">(%1d) Pirate - Chance to get extra gold on PVP rounds</string>
 
-    <string name="phantom_2_text">(%1d) - Set one enemy\'s HP to 100 at start of combat</string>
+    <string name="phantom_2_text">(%1d) Phantom - Set one enemy\'s HP to 100 at start of combat</string>
 
-    <string name="wild_2_text">(%1d) - Wild Allies build Fury (Max 5). Each stack gives 8%% Attack Speed</string>
-    <string name="wild_4_text">(%1d) - All Allies build Fury (Max 5). Each stack gives 8%% Attack Speed</string>
+    <string name="wild_2_text">(%1d) Wild - Wild Allies build Fury (Max 5). Each stack gives 8%% Attack Speed</string>
+    <string name="wild_4_text">(%1d) Wild - All Allies build Fury (Max 5). Each stack gives 8%% Attack Speed</string>
 
-    <string name="void_3_text">(%1d) - Allies attacks ignore 50%% of enemy Armor</string>
+    <string name="void_3_text">(%1d) Void - Allies attacks ignore 50%% of enemy Armor</string>
 
-    <string name="yordle_3_text">(%1d) - Attacks on Yordles have 20%% chance to miss</string>
-    <string name="yordle_6_text">(%1d) - Attacks on Yordles have 50%% chance to miss</string>
+    <string name="yordle_3_text">(%1d) Yordle - Attacks on Yordles have 20%% chance to miss</string>
+    <string name="yordle_6_text">(%1d) Yordle - Attacks on Yordles have 50%% chance to miss</string>
 
-    <string name="assassin_3_text">(%1d) - +150%% crit damage for Assassins</string>
-    <string name="assassin_6_text">(%1d) - +350%% crit damage for Assassins</string>
+    <string name="assassin_3_text">(%1d) Assassin - +150%% crit damage for Assassins</string>
+    <string name="assassin_6_text">(%1d) Assassin - +350%% crit damage for Assassins</string>
 
-    <string name="blademaster_3_text">(%1d) - 35%% chance on hit for Blademasters to attack 1 extra time</string>
-    <string name="blademaster_6_text">(%1d) - 35%% chance on hit for Blademasters to attack 2 extra times</string>
+    <string name="blademaster_3_text">(%1d) Blademaster - 35%% chance on hit for Blademasters to attack 1 extra time</string>
+    <string name="blademaster_6_text">(%1d) Blademaster- 35%% chance on hit for Blademasters to attack 2 extra times</string>
 
-    <string name="brawler_2_text">(%1d) - +300 health to Brawlers</string>
-    <string name="brawler_4_text">(%1d) - +700 health to Brawlers</string>
+    <string name="brawler_2_text">(%1d) Brawler - +300 health to Brawlers</string>
+    <string name="brawler_4_text">(%1d) Brawler - +700 health to Brawlers</string>
 
-    <string name="elementalist_3_text">(%1d) - Each combat, summon an Elemental</string>
+    <string name="elementalist_3_text">(%1d) Elementalist - Each combat, summon an Elemental</string>
 
-    <string name="guardian_2_text">(%1d) - +30 Armor to Guardians and allies that are adjacent to them</string>
+    <string name="guardian_2_text">(%1d) Guardian - +30 Armor to Guardians and allies that are adjacent to them</string>
 
-    <string name="gunslinger_2_text">(%1d) - 50%% chance on hit to attack one additional target in range</string>
-    <string name="gunslinger_4_text">(%1d) - 50%% chance on hit to attack all additional targets in range</string>
+    <string name="gunslinger_2_text">(%1d) Gunslinger - 50%% chance on hit to attack one additional target in range</string>
+    <string name="gunslinger_4_text">(%1d) Gunslinger - 50%% chance on hit to attack all additional targets in range</string>
 
-    <string name="knight_2_text">(%1d) - Knights block 20 damage from basic attacks</string>
-    <string name="knight_4_text">(%1d) - Knights block 40 damage from basic attacks</string>
-    <string name="knight_6_text">(%1d) - Knights block 60 damage from basic attacks</string>
+    <string name="knight_2_text">(%1d) Knight - Knights block 20 damage from basic attacks</string>
+    <string name="knight_4_text">(%1d) Knight - Knights block 40 damage from basic attacks</string>
+    <string name="knight_6_text">(%1d) Knight - Knights block 60 damage from basic attacks</string>
 
-    <string name="ranger_2_text">(%1d) - Every 3s, Rangers have a 25%% chance to double their attack speed for 3s</string>
-    <string name="ranger_4_text">(%1d) - Every 3s, Rangers have a 65%% chance to double their attack speed for 3s</string>
+    <string name="ranger_2_text">(%1d) Ranger - Every 3s, Rangers have a 25%% chance to double their attack speed for 3s</string>
+    <string name="ranger_4_text">(%1d) Ranger - Every 3s, Rangers have a 65%% chance to double their attack speed for 3s</string>
 
-    <string name="shapeshifter_3_text">(%1d) - On transform gain 100%% max HP</string>
+    <string name="shapeshifter_3_text">(%1d) Shapeshifter - On transform gain 100%% max HP</string>
 
-    <string name="sorcerer_3_text">(%1d) - +35 AP to all allies</string>
-    <string name="sorcerer_6_text">(%1d) - +100 AP to all allies</string>
+    <string name="sorcerer_3_text">(%1d) Sorcerer - +35 AP to all allies</string>
+    <string name="sorcerer_6_text">(%1d) Sorcerer - +100 AP to all allies</string>
 
 
 </resources>
