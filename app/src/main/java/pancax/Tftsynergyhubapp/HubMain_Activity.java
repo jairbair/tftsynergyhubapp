@@ -131,6 +131,7 @@ public class HubMain_Activity extends AppCompatActivity {
     LinearLayout classSelectorLayout;
     ScrollView originSelectorLayoutScroll;
     ScrollView classSelectorLayoutScroll;
+    LinearLayout synergySelectedLayout;
     boolean originOrClass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -144,6 +145,7 @@ public class HubMain_Activity extends AppCompatActivity {
         classSelectorLayout = findViewById(R.id.classSelectorLayout);
         originSelectorLayoutScroll = findViewById(R.id.originSelectorLayoutScroll);
         classSelectorLayoutScroll = findViewById(R.id.classSelectorLayoutScroll);
+        synergySelectedLayout = findViewById(R.id.synergyHolderLayout);
         //true for origin false for class
         originOrClass=false;
         makeOriginSelectorLayout();
@@ -319,10 +321,34 @@ public class HubMain_Activity extends AppCompatActivity {
     public void updateHolder(){
         ArrayList<Champion> currentList = holder.getCurrentChampionList();
         int demonCount=0;
+        int dragonCount=0;
+        int exileCount=0;
+        int glacialCount=0;
+        int robotCount=0;
+        int imperialCount=0;
+        int nobleCount=0;
+        int ninjaCount=0;
+        int pirateCount=0;
+        int phantomCount=0;
+        int wildCount=0;
+        int voidCount=0;
+        int yordleCount=0;
         for(Champion i: currentList){
             for(String name:i.getOriginName()){
                 switch(name){
                     case "Demon":{demonCount++;break;}
+                    case "Dragon":{dragonCount++;break;}
+                    case "Exile":{exileCount++;break;}
+                    case "Glacial":{glacialCount++;break;}
+                    case "Robot":{robotCount++;break;}
+                    case "Imperial":{imperialCount++;break;}
+                    case "Noble":{nobleCount++;break;}
+                    case "Ninja":{ninjaCount++;break;}
+                    case "Pirate":{pirateCount++;break;}
+                    case "Phantom":{phantomCount++;break;}
+                    case "Wild":{wildCount++;break;}
+                    case "Void":{voidCount++;break;}
+                    case "Yorlde":{yordleCount++;break;}
                 }
             }
             for(String className:i.getClassName()){
@@ -332,45 +358,79 @@ public class HubMain_Activity extends AppCompatActivity {
             }
 
         }
-        checkSynergies(demonCount);
+        checkSynergies(demonCount,dragonCount,exileCount,glacialCount,robotCount, imperialCount, nobleCount,
+                        ninjaCount,pirateCount,phantomCount,wildCount,voidCount,yordleCount);
         //update Champions in holder text
         updateNumberOfChampsInHolderText(currentList);
         updateChampionImages(currentList);
 
     }
-    public void updateChampionImages(ArrayList<Champion> champions){
+    public void updateChampionImages(ArrayList<Champion> champions) {
         championSelectedLayout.removeAllViewsInLayout();
         Context layoutContext = championSelectedLayout.getContext();
-        for(int i=0;i<champions.size();i++){
-            ImageButton button = new ImageButton(layoutContext);
-            button.setTag(champions.get(i).getName());
-            button.setId(View.generateViewId());
-            button.setBackgroundColor(Color.TRANSPARENT);
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    String name= (String)(view.getTag());
-                    holder.removeChampionFromList(name);
-                    updateHolder();
-                }
-            });
-            championSelectedLayout.addView(button);
-            ViewGroup.LayoutParams buttonParams = button.getLayoutParams();
+        int repeats = champions.size();
+        int counter = -1;
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
+        int diviser = (int) Math.ceil(dpWidth) / 60 /*width of images + margins and stuff*/;
+        while (repeats > 0) {
+            counter++;
+            LinearLayout holderView = new LinearLayout(championSelectedLayout.getContext());
+            holderView.setGravity(Gravity.CENTER);
+            for (int i = 0; i < diviser && i+counter*diviser<champions.size(); i++) {
+                ImageButton button = new ImageButton(layoutContext);
+                button.setTag(champions.get(i+counter*diviser).getName());
+                button.setId(View.generateViewId());
+                button.setBackgroundColor(Color.TRANSPARENT);
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String name = (String) (view.getTag());
+                        holder.removeChampionFromList(name);
+                        updateHolder();
+                    }
+                });
 
-            String nameThing="avatar_"+champions.get(i).getName().toLowerCase().replaceAll("[^a-z]","")+"";
-            int id = getResources().getIdentifier(nameThing,"drawable",layoutContext.getPackageName());
-            button.setImageDrawable(getResources().getDrawable(id,layoutContext.getTheme()));
+                LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams((int) getResources().getDimension(R.dimen.champion_selected_width), (int) getResources().getDimension(R.dimen.champion_selected_height));
+                buttonParams.setMargins(8, 8, 8, 8);
+                holderView.addView(button, buttonParams);
+                String nameThing = "avatar_" + champions.get(i+counter*diviser).getName().toLowerCase().replaceAll("[^a-z]", "") + "";
+                int id = getResources().getIdentifier(nameThing, "drawable", layoutContext.getPackageName());
+                button.setBackground(getResources().getDrawable(id, layoutContext.getTheme()));
+            }
+            championSelectedLayout.addView(holderView);
+            repeats/=diviser;
         }
     }
-    public void checkSynergies(int demonCount /*add all the synergies into this passer*/){
+    public void checkSynergies(int demonCount, int dragonCount,
+            int exileCount,
+            int glacialCount,
+            int robotCount,
+            int imperialCount,
+            int nobleCount,
+            int ninjaCount,
+            int pirateCount,
+            int phantomCount,
+            int wildCount,
+            int voidCount,
+            int yordleCount /*add all the synergies into this passer*/){
+        synergySelectedLayout.removeAllViewsInLayout();
 
-        if(demonCount==6){
-
-        }else if(demonCount==4){
-
-        }else if(demonCount==2){
-            Log.d("demonCountistwo","twoboy");
+        if(demonCount>=6){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            text.setText(R.string.demon_6_text);
+            synergySelectedLayout.addView(text);
+        }else if(demonCount>=4){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            text.setText(R.string.demon_4_text);
+            synergySelectedLayout.addView(text);
+        }else if(demonCount>=2){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            text.setText(R.string.demon_2_text);
+            synergySelectedLayout.addView(text);
         }
+
     }
     public void updateNumberOfChampsInHolderText(ArrayList<Champion> currentList){
         numberOfChampsInHolderText.setText(currentList.size()+"/10");
@@ -382,7 +442,7 @@ public class HubMain_Activity extends AppCompatActivity {
                 ChampionOrigins origin = ORIGINS_ARRAY_LIST.get(i);
                 ArrayList<Champion> champions = origin.getList();
                 LinearLayout.LayoutParams textViewParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                textViewParams.setMargins(8, 0, 8, 16);
+                textViewParams.setMargins(8, 0, 8, 8);
                 LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams((int) getResources().getDimension(R.dimen.champion_selector_width), (int) getResources().getDimension(R.dimen.champion_selector_height));
                 buttonParams.setMargins(8, 8, 8, 8);
                 int repeats = champions.size();
@@ -390,16 +450,14 @@ public class HubMain_Activity extends AppCompatActivity {
                 DisplayMetrics displayMetrics = new DisplayMetrics();
                 getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
                 float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
-
                 int diviser = (int) Math.ceil(dpWidth)/ 70 /*width of images + margins and stuff*/;
-                Log.d("thinerino", ""+dpWidth+" "+diviser);
                 while (repeats > 0) {
                     LinearLayout originView = new LinearLayout(originSelectorLayout.getContext());
                     counter++;
                     if(counter==0){
                         TextView originName = new TextView(originView.getContext());
                         originName.setText(origin.getOriginName());
-                        originSelectorLayout.addView(originName);
+                        originSelectorLayout.addView(originName,textViewParams);
                         makeViewParams(originView);
                     }
                     for (int j = 0; j < diviser&&j+counter*diviser<champions.size(); j++) {
@@ -437,12 +495,17 @@ public class HubMain_Activity extends AppCompatActivity {
         for(int i=0;i<CLASSES_ARRAY_LIST.size();i++) {
             ChampionClasses classes = CLASSES_ARRAY_LIST.get(i);
             ArrayList<Champion> champions = classes.getList();
-
+            LinearLayout.LayoutParams textViewParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            textViewParams.setMargins(8, 0, 8, 8);
 
             LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams((int) getResources().getDimension(R.dimen.champion_selector_width), (int) getResources().getDimension(R.dimen.champion_selector_height));
             buttonParams.setMargins(8, 8, 8, 8);
             int repeats = champions.size();
             int counter = -1;
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+            float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
+            int diviser = (int) Math.ceil(dpWidth)/ 70 /*width of images + margins and stuff*/;
             while (repeats > 0) {
                 counter++;
                 LinearLayout classView = new LinearLayout(classSelectorLayout.getContext());
@@ -450,15 +513,15 @@ public class HubMain_Activity extends AppCompatActivity {
                 {
                     TextView className = new TextView(classView.getContext());
                     className.setText(classes.getName());
-                    classSelectorLayout.addView(className);
+                    classSelectorLayout.addView(className,textViewParams);
 
                     //makeViewParams(classView);
                     classView.setOrientation(LinearLayout.HORIZONTAL);
                     classView.setGravity(Gravity.FILL);
                 }
-                for (int j = 0; j < 5 && j+counter*5<champions.size(); j++) {
+                for (int j = 0; j < diviser && j+counter*diviser<champions.size(); j++) {
                     ImageButton button = new ImageButton(classView.getContext());
-                    button.setTag(champions.get(j+counter*5).getName());
+                    button.setTag(champions.get(j+counter*diviser).getName());
                     button.setId(View.generateViewId());
                     button.setBackgroundColor(Color.TRANSPARENT);
                     button.setOnClickListener(new View.OnClickListener() {
@@ -477,12 +540,12 @@ public class HubMain_Activity extends AppCompatActivity {
                     });
                     classView.addView(button, buttonParams);
 
-                    String nameThing = "avatar_" + champions.get(j+counter*5).getName().toLowerCase().replaceAll("[^a-z]", "") + "";
+                    String nameThing = "avatar_" + champions.get(j+counter*diviser).getName().toLowerCase().replaceAll("[^a-z]", "") + "";
                     int id = getResources().getIdentifier(nameThing, "drawable", classView.getContext().getPackageName());
                     button.setBackground(getResources().getDrawable(id, classView.getContext().getTheme()));
                 }
                 classSelectorLayout.addView(classView);
-                repeats = repeats/5;
+                repeats = repeats/diviser;
             }
 
         }

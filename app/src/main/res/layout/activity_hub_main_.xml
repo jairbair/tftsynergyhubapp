@@ -11,7 +11,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/championSelectedLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -34,16 +33,25 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/synergyHolderLayout"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/championSelectedLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headerLayout"></LinearLayout>
+
+    <LinearLayout
         android:id="@+id/championSelectedLayout"
         android:layout_width="0dp"
-        android:layout_height="130dp"
+        android:layout_height="120dp"
         android:gravity="fill"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/originButton"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerLayout">
+        app:layout_constraintTop_toBottomOf="@+id/synergyHolderLayout">
 
     </LinearLayout>
 

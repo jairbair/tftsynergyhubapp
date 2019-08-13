@@ -6,4 +6,10 @@
     <string name="TeamBuilderButtonString">Team Builder</string>
     <string name="DropRatesButtonString">Drop Rates</string>
     <string name="ChampionHolderNumber">0/10</string>
+
+    <string name="demon_6_text">Attacks from Demons have a 60% chance to mana-burn</string>
+    <string name="demon_4_text">Attacks from Demons have a 40% chance to mana-burn</string>
+    <string name="demon_2_text">Attacks from Demons have a 20% chance to mana-burn</string>
+
+
 </resources>
