@@ -11,6 +11,7 @@
         android:id="@+id/headerLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@color/gold"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +23,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/Champions"
-            android:textAlignment="viewStart" />
+            android:textAlignment="viewStart"
+            android:textColor="@color/ic_launcher_background" />
 
         <TextView
             android:id="@+id/numberOfChampsText"
@@ -30,7 +32,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="@string/ChampionHolderNumber"
-            android:textAlignment="textEnd" />
+            android:textAlignment="textEnd"
+            android:textColor="@color/ic_launcher_background" />
     </LinearLayout>
 
     <ScrollView
