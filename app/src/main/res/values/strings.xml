@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">tftsynergyhubapp</string>
+    <string name="app_name">TFT Buddy</string>
     <string name="Champions">Champions</string>
     <string name="OriginButtonString">Origin</string>
     <string name="ClassButtonStirng">Class</string>
@@ -13,7 +13,7 @@
 
     <string name="dragon_2_text">(%1d) - Dragons are immune to Magic Damage</string>
 
-    <string name="exile_1_text">(%1d) - Gains 100%% of HP as a shield when placed adjacent to no other units</string>
+    <string name="exile_1_text">(%1d) - Exiles gain 100%% of HP as a shield when placed adjacent to no other units</string>
 
     <string name="glacial_2_text">(%1d) - 25%% chance to stun on hit for 2s</string>
     <string name="glacial_4_text">(%1d) - 35%% chance to stun on hit for 2s</string>

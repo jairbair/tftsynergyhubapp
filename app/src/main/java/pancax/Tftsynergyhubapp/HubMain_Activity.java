@@ -339,6 +339,16 @@ public class HubMain_Activity extends AppCompatActivity {
         int wildCount=0;
         int voidCount=0;
         int yordleCount=0;
+        int assassinCount=0;
+        int blademasterCount=0;
+        int brawlerCount=0;
+        int elementalistCount=0;
+        int guardianCount=0;
+        int gunslingerCount=0;
+        int knightCount=0;
+        int rangerCount=0;
+        int shapeshifterCount=0;
+        int sorcererCount=0;
         for(Champion i: currentList){
             for(String name:i.getOriginName()){
                 switch(name){
@@ -360,12 +370,22 @@ public class HubMain_Activity extends AppCompatActivity {
             for(String className:i.getClassName()){
                 switch(className){
                     /* start adding cases for classes here*/
+                    case "Assassin":{assassinCount++;break;}
+                    case "Blademaster":{blademasterCount++;break;}
+                    case "Brawler":{brawlerCount++;break;}
+                    case "Elementalist":{elementalistCount++;break;}
+                    case "Guardian":{guardianCount++;break;}
+                    case "Gunslinger":{gunslingerCount++;break;}
+                    case "Knight":{knightCount++;break;}
+                    case "Ranger":{rangerCount++;break;}
+                    case "Shapeshifter":{shapeshifterCount++;break;}
+                    case "Sorcerer":{sorcererCount++;break;}
                 }
             }
 
         }
         checkSynergies(demonCount,dragonCount,exileCount,glacialCount,robotCount, imperialCount, nobleCount,
-                        ninjaCount,pirateCount,phantomCount,wildCount,voidCount,yordleCount);
+                        ninjaCount,pirateCount,phantomCount,wildCount,voidCount,yordleCount,assassinCount,blademasterCount,brawlerCount,elementalistCount,guardianCount,gunslingerCount,knightCount,rangerCount,shapeshifterCount,sorcererCount);
         //update Champions in holder text
         updateNumberOfChampsInHolderText(currentList);
         updateChampionImages(currentList);
@@ -420,9 +440,19 @@ public class HubMain_Activity extends AppCompatActivity {
             int phantomCount,
             int wildCount,
             int voidCount,
-            int yordleCount /*add all the synergies into this passer*/){
+            int yordleCount, /*add all the synergies into this passer*/
+            int assassinCount,
+            int blademasterCount,
+            int brawlerCount,
+            int elementalistCount,
+            int guardianCount,
+            int gunslingerCount,
+            int knightCount,
+            int rangerCount,
+            int shapeshifterCount,
+            int sorcererCount){
         synergySelectedLayout.removeAllViewsInLayout();
-
+        //check ORIGINS
         if(demonCount>=6){
             TextView text = new TextView(synergySelectedLayout.getContext());
             String textTjom = getString(R.string.demon_6_text,demonCount);
@@ -546,6 +576,108 @@ public class HubMain_Activity extends AppCompatActivity {
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
         }
+        //check CLASSES
+        if(assassinCount>=6){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.assassin_6_text,assassinCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        } else if(assassinCount>=3){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.assassin_3_text,assassinCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }
+        if(blademasterCount>=6){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.blademaster_6_text,blademasterCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        } else if(blademasterCount>=3){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.blademaster_3_text,blademasterCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }
+        if(brawlerCount>=4){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.brawler_4_text,brawlerCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        } else if(brawlerCount>=2){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.brawler_2_text,brawlerCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }
+        if(elementalistCount>=3){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.elementalist_3_text,elementalistCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }
+        if(guardianCount>=2){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.guardian_2_text,guardianCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }
+        if(gunslingerCount>=4){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.gunslinger_4_text,gunslingerCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        } else if(gunslingerCount>=2){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.gunslinger_2_text,gunslingerCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }
+        if(knightCount>=6){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.knight_6_text,knightCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        } else if(knightCount>=4){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.knight_4_text,knightCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        } else if(knightCount>=2){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.knight_2_text,knightCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }
+        if(rangerCount>=4){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.ranger_4_text,rangerCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        } else if(rangerCount>=2){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.ranger_2_text,rangerCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }
+        if(shapeshifterCount>=3){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.shapeshifter_3_text,shapeshifterCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }
+        if(sorcererCount>=6){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.sorcerer_6_text,sorcererCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        } else if(sorcererCount>=3){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.sorcerer_3_text,sorcererCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }
+
     }
     public void updateNumberOfChampsInHolderText(ArrayList<Champion> currentList){
         numberOfChampsInHolderText.setText(currentList.size()+"/10");
@@ -557,9 +689,9 @@ public class HubMain_Activity extends AppCompatActivity {
                 ChampionOrigins origin = ORIGINS_ARRAY_LIST.get(i);
                 ArrayList<Champion> champions = origin.getList();
                 LinearLayout.LayoutParams textViewParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                textViewParams.setMargins(8, 0, 8, 8);
+                textViewParams.setMargins(8, 0, 8, 16);
                 LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams((int) getResources().getDimension(R.dimen.champion_selector_width), (int) getResources().getDimension(R.dimen.champion_selector_height));
-                buttonParams.setMargins(8, 8, 8, 8);
+                buttonParams.setMargins(8, 0, 8, 8);
                 int repeats = champions.size();
                 int counter = -1;
                 DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -611,10 +743,10 @@ public class HubMain_Activity extends AppCompatActivity {
             ChampionClasses classes = CLASSES_ARRAY_LIST.get(i);
             ArrayList<Champion> champions = classes.getList();
             LinearLayout.LayoutParams textViewParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            textViewParams.setMargins(8, 0, 8, 8);
+            textViewParams.setMargins(8, 0, 8, 16);
 
             LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams((int) getResources().getDimension(R.dimen.champion_selector_width), (int) getResources().getDimension(R.dimen.champion_selector_height));
-            buttonParams.setMargins(8, 8, 8, 8);
+            buttonParams.setMargins(8, 0, 8, 8);
             int repeats = champions.size();
             int counter = -1;
             DisplayMetrics displayMetrics = new DisplayMetrics();
