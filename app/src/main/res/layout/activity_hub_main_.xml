@@ -36,7 +36,7 @@
     <LinearLayout
         android:id="@+id/championSelectedLayout"
         android:layout_width="0dp"
-        android:layout_height="70dp"
+        android:layout_height="130dp"
         android:gravity="fill"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/originButton"

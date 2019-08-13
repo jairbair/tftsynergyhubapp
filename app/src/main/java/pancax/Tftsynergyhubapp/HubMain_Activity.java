@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -386,6 +387,10 @@ public class HubMain_Activity extends AppCompatActivity {
                 buttonParams.setMargins(8, 8, 8, 8);
                 int repeats = champions.size();
                 int counter = -1;
+                DisplayMetrics displayMetrics = new DisplayMetrics();
+                getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+                float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
+                int diviser = (int) Math.ceil(dpWidth)/ (int) getResources().getDimension(R.dimen.champion_selector_width);
                 while (repeats > 0) {
                     LinearLayout originView = new LinearLayout(originSelectorLayout.getContext());
                     counter++;
@@ -395,9 +400,9 @@ public class HubMain_Activity extends AppCompatActivity {
                         originSelectorLayout.addView(originName);
                         makeViewParams(originView);
                     }
-                    for (int j = 0; j < 5&&j+counter*5<champions.size(); j++) {
+                    for (int j = 0; j < diviser&&j+counter*diviser<champions.size(); j++) {
                         ImageButton button = new ImageButton(originView.getContext());
-                        button.setTag(champions.get(j+counter*5).getName());
+                        button.setTag(champions.get(j+counter*diviser).getName());
                         button.setId(View.generateViewId());
                         button.setBackgroundColor(Color.TRANSPARENT);
                         button.setOnClickListener(new View.OnClickListener() {
@@ -416,12 +421,12 @@ public class HubMain_Activity extends AppCompatActivity {
                         });
                         originView.addView(button, buttonParams);
 
-                        String nameThing = "avatar_" + champions.get(j+counter*5).getName().toLowerCase().replaceAll("[^a-z]", "") + "";
+                        String nameThing = "avatar_" + champions.get(j+counter*diviser).getName().toLowerCase().replaceAll("[^a-z]", "") + "";
                         int id = getResources().getIdentifier(nameThing, "drawable", originView.getContext().getPackageName());
                         button.setBackground(getResources().getDrawable(id, originView.getContext().getTheme()));
                     }
                     originSelectorLayout.addView(originView);
-                    repeats/=5;
+                    repeats/=diviser;
                 }
             }
     }
