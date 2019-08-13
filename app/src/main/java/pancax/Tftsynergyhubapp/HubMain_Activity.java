@@ -390,7 +390,9 @@ public class HubMain_Activity extends AppCompatActivity {
                 DisplayMetrics displayMetrics = new DisplayMetrics();
                 getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
                 float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
-                int diviser = (int) Math.ceil(dpWidth)/ (int) getResources().getDimension(R.dimen.champion_selector_width);
+
+                int diviser = (int) Math.ceil(dpWidth)/ 70 /*width of images + margins and stuff*/;
+                Log.d("thinerino", ""+dpWidth+" "+diviser);
                 while (repeats > 0) {
                     LinearLayout originView = new LinearLayout(originSelectorLayout.getContext());
                     counter++;
