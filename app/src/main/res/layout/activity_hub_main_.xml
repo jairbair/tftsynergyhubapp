@@ -39,7 +39,7 @@
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="64dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:background="@color/darker_gray_color"
@@ -51,15 +51,16 @@
             android:id="@+id/synergyHolderLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"></LinearLayout>
+            android:orientation="vertical"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"></LinearLayout>
     </ScrollView>
 
     <LinearLayout
         android:id="@+id/championSelectedLayout"
         android:layout_width="0dp"
-        android:layout_height="120dp"
+        android:layout_height="112dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:background="@color/darkless_gray_color"
         android:gravity="fill"
