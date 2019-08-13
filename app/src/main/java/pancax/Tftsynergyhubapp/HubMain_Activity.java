@@ -15,6 +15,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.WrapperListAdapter;
 
 import java.util.ArrayList;
 
@@ -375,92 +376,112 @@ public class HubMain_Activity extends AppCompatActivity {
     }
     public void makeOriginSelectorLayout(){
 
-            for(int i=0;i<ORIGINS_ARRAY_LIST.size();i++){
-                LinearLayout originView = new LinearLayout(originSelectorLayout.getContext());
+            for(int i=0;i<ORIGINS_ARRAY_LIST.size();i++) {
+
                 ChampionOrigins origin = ORIGINS_ARRAY_LIST.get(i);
                 ArrayList<Champion> champions = origin.getList();
+                LinearLayout.LayoutParams textViewParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                textViewParams.setMargins(8, 0, 8, 16);
+                LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams((int) getResources().getDimension(R.dimen.champion_selector_width), (int) getResources().getDimension(R.dimen.champion_selector_height));
+                buttonParams.setMargins(8, 8, 8, 8);
+                int repeats = champions.size();
+                int counter = -1;
+                while (repeats > 0) {
+                    LinearLayout originView = new LinearLayout(originSelectorLayout.getContext());
+                    counter++;
+                    if(counter==0){
+                        TextView originName = new TextView(originView.getContext());
+                        originName.setText(origin.getOriginName());
+                        originSelectorLayout.addView(originName);
+                        makeViewParams(originView);
+                    }
+                    for (int j = 0; j < 5&&j+counter*5<champions.size(); j++) {
+                        ImageButton button = new ImageButton(originView.getContext());
+                        button.setTag(champions.get(j+counter*5).getName());
+                        button.setId(View.generateViewId());
+                        button.setBackgroundColor(Color.TRANSPARENT);
+                        button.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                String name = (String) (view.getTag());
+                                if (!holder.isChampionInList(name)) {
+                                    holder.addChampionToList(name);
+                                    Log.d("Holdercurrent", holder.getCurrentChampionList().toString());
+                                    updateHolder();
+                                } else {
+                                    holder.removeChampionFromList(name);
+                                    updateHolder();
+                                }
+                            }
+                        });
+                        originView.addView(button, buttonParams);
 
-                TextView originName = new TextView(originView.getContext());
-                originName.setText(origin.getOriginName());
-                originSelectorLayout.addView(originName);
-                LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams(80, 80);
-                buttonParams.setMargins(8,0,8,0);
+                        String nameThing = "avatar_" + champions.get(j+counter*5).getName().toLowerCase().replaceAll("[^a-z]", "") + "";
+                        int id = getResources().getIdentifier(nameThing, "drawable", originView.getContext().getPackageName());
+                        button.setBackground(getResources().getDrawable(id, originView.getContext().getTheme()));
+                    }
+                    originSelectorLayout.addView(originView);
+                    repeats/=5;
+                }
+            }
+    }
+    public void makeClassSelectorLayout(){
 
-                makeViewParams(originView);
-                for(int j=0;j<champions.size();j++){
-                    ImageButton button = new ImageButton(originView.getContext());
-                    button.setTag(champions.get(j).getName());
+        for(int i=0;i<CLASSES_ARRAY_LIST.size();i++) {
+            ChampionClasses classes = CLASSES_ARRAY_LIST.get(i);
+            ArrayList<Champion> champions = classes.getList();
+
+
+            LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams((int) getResources().getDimension(R.dimen.champion_selector_width), (int) getResources().getDimension(R.dimen.champion_selector_height));
+            buttonParams.setMargins(8, 8, 8, 8);
+            int repeats = champions.size();
+            int counter = -1;
+            while (repeats > 0) {
+                counter++;
+                LinearLayout classView = new LinearLayout(classSelectorLayout.getContext());
+                if(counter==0)
+                {
+                    TextView className = new TextView(classView.getContext());
+                    className.setText(classes.getName());
+                    classSelectorLayout.addView(className);
+
+                    //makeViewParams(classView);
+                    classView.setOrientation(LinearLayout.HORIZONTAL);
+                    classView.setGravity(Gravity.FILL);
+                }
+                for (int j = 0; j < 5 && j+counter*5<champions.size(); j++) {
+                    ImageButton button = new ImageButton(classView.getContext());
+                    button.setTag(champions.get(j+counter*5).getName());
                     button.setId(View.generateViewId());
                     button.setBackgroundColor(Color.TRANSPARENT);
                     button.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            String name= (String)(view.getTag());
-                            if(!holder.isChampionInList(name)) {
+                            String name = (String) (view.getTag());
+                            if (!holder.isChampionInList(name)) {
                                 holder.addChampionToList(name);
                                 Log.d("Holdercurrent", holder.getCurrentChampionList().toString());
                                 updateHolder();
-                            }
-                            else{
+                            } else {
                                 holder.removeChampionFromList(name);
                                 updateHolder();
                             }
                         }
                     });
-                    originView.addView(button,buttonParams);
+                    classView.addView(button, buttonParams);
 
-                    String nameThing="avatar_"+champions.get(j).getName().toLowerCase().replaceAll("[^a-z]","")+"";
-                    int id = getResources().getIdentifier(nameThing,"drawable",originView.getContext().getPackageName());
-                    button.setBackground(getResources().getDrawable(id,originView.getContext().getTheme()));
+                    String nameThing = "avatar_" + champions.get(j+counter*5).getName().toLowerCase().replaceAll("[^a-z]", "") + "";
+                    int id = getResources().getIdentifier(nameThing, "drawable", classView.getContext().getPackageName());
+                    button.setBackground(getResources().getDrawable(id, classView.getContext().getTheme()));
                 }
-                originSelectorLayout.addView(originView);
-        }
-    }
-    public void makeClassSelectorLayout(){
-
-        for(int i=0;i<CLASSES_ARRAY_LIST.size();i++){
-            LinearLayout classView = new LinearLayout(classSelectorLayout.getContext());
-            ChampionClasses classes = CLASSES_ARRAY_LIST.get(i);
-            ArrayList<Champion> champions = classes.getList();
-
-            TextView className = new TextView(classView.getContext());
-            className.setText(classes.getName());
-            classSelectorLayout.addView(className);
-
-            //makeViewParams(classView);
-            classView.setOrientation(LinearLayout.HORIZONTAL);
-            classView.setGravity(Gravity.FILL);
-            LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams(80, 80);
-            buttonParams.setMargins(8,0,8,0);
-            for(int j=0;j<champions.size();j++){
-                ImageButton button = new ImageButton(classView.getContext());
-                button.setTag(champions.get(j).getName());
-                button.setId(View.generateViewId());
-                button.setBackgroundColor(Color.TRANSPARENT);
-                button.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        String name= (String)(view.getTag());
-                        if(!holder.isChampionInList(name)) {
-                            holder.addChampionToList(name);
-                            Log.d("Holdercurrent", holder.getCurrentChampionList().toString());
-                            updateHolder();
-                        }
-                        else{
-                            holder.removeChampionFromList(name);
-                            updateHolder();
-                        }
-                    }
-                });
-                classView.addView(button,buttonParams);
-
-                String nameThing="avatar_"+champions.get(j).getName().toLowerCase().replaceAll("[^a-z]","")+"";
-                int id = getResources().getIdentifier(nameThing,"drawable",classView.getContext().getPackageName());
-                button.setBackground(getResources().getDrawable(id,classView.getContext().getTheme()));
+                classSelectorLayout.addView(classView);
+                repeats = repeats/5;
             }
-            classSelectorLayout.addView(classView);
+
         }
+
     }
+
     public void makeViewParams(LinearLayout view){
         view.setGravity(Gravity.FILL);
         view.setOrientation(LinearLayout.HORIZONTAL);
