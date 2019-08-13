@@ -5,6 +5,7 @@ import android.content.Context;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 
 import android.util.DisplayMetrics;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -132,6 +134,8 @@ public class HubMain_Activity extends AppCompatActivity {
     ScrollView originSelectorLayoutScroll;
     ScrollView classSelectorLayoutScroll;
     LinearLayout synergySelectedLayout;
+    Button originButton;
+    Button classButton;
     boolean originOrClass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,6 +150,8 @@ public class HubMain_Activity extends AppCompatActivity {
         originSelectorLayoutScroll = findViewById(R.id.originSelectorLayoutScroll);
         classSelectorLayoutScroll = findViewById(R.id.classSelectorLayoutScroll);
         synergySelectedLayout = findViewById(R.id.synergyHolderLayout);
+        originButton = findViewById(R.id.originButton);
+        classButton = findViewById(R.id.classButton);
         //true for origin false for class
         originOrClass=false;
         makeOriginSelectorLayout();
@@ -419,15 +425,18 @@ public class HubMain_Activity extends AppCompatActivity {
 
         if(demonCount>=6){
             TextView text = new TextView(synergySelectedLayout.getContext());
-            text.setText(R.string.demon_6_text);
+            String textTjom = getString(R.string.demon_6_text,demonCount);
+            text.setText(textTjom);
             synergySelectedLayout.addView(text);
         }else if(demonCount>=4){
             TextView text = new TextView(synergySelectedLayout.getContext());
-            text.setText(R.string.demon_4_text);
+            String textTjom = getString(R.string.demon_4_text,demonCount);
+            text.setText(textTjom);
             synergySelectedLayout.addView(text);
         }else if(demonCount>=2){
             TextView text = new TextView(synergySelectedLayout.getContext());
-            text.setText(R.string.demon_2_text);
+            String textTjom = getString(R.string.demon_2_text,demonCount);
+            text.setText(textTjom);
             synergySelectedLayout.addView(text);
         }
 
@@ -559,10 +568,19 @@ public class HubMain_Activity extends AppCompatActivity {
     public void onClassButtonClicked(View v){
         originSelectorLayoutScroll.setVisibility(View.INVISIBLE);
         classSelectorLayoutScroll.setVisibility(View.VISIBLE);
+        classButton.setBackground(getResources().getDrawable(R.drawable.button_selected_shape,this.getTheme()));
+        originButton.setBackground(getResources().getDrawable(R.drawable.button_default_shape,this.getTheme()));
+        originButton.setTextColor(ContextCompat.getColor(this, R.color.gold));
+        classButton.setTextColor(ContextCompat.getColor(this, R.color.ic_launcher_background));
     }
     public void onOriginButtonClicked(View v){
 
         classSelectorLayoutScroll.setVisibility(View.INVISIBLE);
         originSelectorLayoutScroll.setVisibility(View.VISIBLE);
+
+        classButton.setBackground(getResources().getDrawable(R.drawable.button_default_shape,this.getTheme()));
+        originButton.setBackground(getResources().getDrawable(R.drawable.button_selected_shape,this.getTheme()));
+        originButton.setTextColor(ContextCompat.getColor(this, R.color.ic_launcher_background));
+        classButton.setTextColor(ContextCompat.getColor(this, R.color.gold));
     }
 }
