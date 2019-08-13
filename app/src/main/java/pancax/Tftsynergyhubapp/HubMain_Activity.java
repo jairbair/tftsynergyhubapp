@@ -4,6 +4,7 @@ package pancax.Tftsynergyhubapp;
 import android.content.Context;
 
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -776,18 +777,19 @@ public class HubMain_Activity extends AppCompatActivity {
                         public void onClick(View view) {
                             String name = (String) (view.getTag());
                             if (!holder.isChampionInList(name)) {
-                                holder.addChampionToList(name);
-                                Log.d("Holdercurrent", holder.getCurrentChampionList().toString());
-                                updateHolder();
+                                if(holder.addChampionToList(name)) {
+                                    Log.d("Holdercurrent", holder.getCurrentChampionList().toString());
+                                    view.setForeground(getDrawable(R.drawable.red_x_drawable));
+                                    updateHolder();
+                                }
                             } else {
                                 holder.removeChampionFromList(name);
                                 updateHolder();
+                                view.setForeground(new ColorDrawable(Color.TRANSPARENT));
                             }
-                            view.setPressed(true);
                         }
                     });
                     classView.addView(button, buttonParams);
-                    button.setForeground(getDrawable(R.drawable.red_x_drawable));
                     String nameThing = "avatar_" + champions.get(j+counter*diviser).getName().toLowerCase().replaceAll("[^a-z]", "") + "";
                     int id = getResources().getIdentifier(nameThing, "drawable", classView.getContext().getPackageName());
                     button.setBackground(getResources().getDrawable(id, classView.getContext().getTheme()));
