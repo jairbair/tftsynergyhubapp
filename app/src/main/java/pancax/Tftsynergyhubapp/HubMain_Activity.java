@@ -680,7 +680,7 @@ public class HubMain_Activity extends AppCompatActivity {
 
     }
     public void updateNumberOfChampsInHolderText(ArrayList<Champion> currentList){
-        numberOfChampsInHolderText.setText(currentList.size()+"/10");
+        numberOfChampsInHolderText.setText(currentList.size()+"/10\t\t");
     }
     public void makeOriginSelectorLayout(){
 
