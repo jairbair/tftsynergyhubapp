@@ -5,4 +5,6 @@
     <color name="colorAccent">#d81b60</color>
     <color name="gold">#D9A64E</color>
     <color name="dark_gray_color">#292929</color>
+    <color name="darker_gray_color">#1F1F1F</color>
+    <color name="darkless_gray_color">#3F3F3F</color>
 </resources>
