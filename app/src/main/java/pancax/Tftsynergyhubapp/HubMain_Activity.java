@@ -439,7 +439,108 @@ public class HubMain_Activity extends AppCompatActivity {
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
         }
-
+        if(dragonCount>=2){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.dragon_2_text,dragonCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }
+        if(exileCount>=1){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.exile_1_text,exileCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }
+        if(glacialCount>=6){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.glacial_6_text,glacialCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        } else if(glacialCount>=4){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.glacial_4_text,glacialCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        } else if(glacialCount>=2){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.glacial_2_text,glacialCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }
+        if(robotCount>=1){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.robot_1_text,robotCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }
+        if(imperialCount>=4){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.imperial_4_text,imperialCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }else if(imperialCount>=2){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.imperial_2_text,imperialCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }
+        if(nobleCount>=6){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.noble_6_text,nobleCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        } else if(nobleCount>=3){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.noble_3_text,nobleCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }
+        if(ninjaCount==1){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.ninja_1_text,ninjaCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }else if(ninjaCount==4){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.ninja_4_text,ninjaCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }
+        if(pirateCount==3) {
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.pirate_3_text, pirateCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }
+        if(phantomCount==2){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.phantom_2_text,phantomCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }
+        if(wildCount>=4){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.wild_4_text,wildCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }
+        if(voidCount==3){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.void_3_text,voidCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }
+        if(yordleCount>=6){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.yordle_6_text,yordleCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }else if(yordleCount>=3){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.yordle_3_text,yordleCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }
     }
     public void updateNumberOfChampsInHolderText(ArrayList<Champion> currentList){
         numberOfChampsInHolderText.setText(currentList.size()+"/10");
