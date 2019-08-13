@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">tftsynergyhubapp</string>
-    <string name="Champions">Champions</string>
+    <string name="Champions">\tChampions</string>
     <string name="OriginButtonString">Origin</string>
     <string name="ClassButtonStirng">Class</string>
     <string name="TeamBuilderButtonString">Team Builder</string>
