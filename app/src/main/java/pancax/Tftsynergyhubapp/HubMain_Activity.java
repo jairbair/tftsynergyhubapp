@@ -783,10 +783,11 @@ public class HubMain_Activity extends AppCompatActivity {
                                 holder.removeChampionFromList(name);
                                 updateHolder();
                             }
+                            view.setPressed(true);
                         }
                     });
                     classView.addView(button, buttonParams);
-
+                    button.setForeground(getDrawable(R.drawable.red_x_drawable));
                     String nameThing = "avatar_" + champions.get(j+counter*diviser).getName().toLowerCase().replaceAll("[^a-z]", "") + "";
                     int id = getResources().getIdentifier(nameThing, "drawable", classView.getContext().getPackageName());
                     button.setBackground(getResources().getDrawable(id, classView.getContext().getTheme()));
