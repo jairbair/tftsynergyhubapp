@@ -36,41 +36,40 @@
             android:textColor="@color/ic_launcher_background" />
     </LinearLayout>
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="0dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@color/darker_gray_color"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerLayout">
-
-        <LinearLayout
-            android:id="@+id/synergyHolderLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingLeft="2dp"
-            android:paddingRight="2dp"></LinearLayout>
-    </ScrollView>
-
     <LinearLayout
         android:id="@+id/championSelectedLayout"
         android:layout_width="0dp"
-        android:layout_height="112dp"
+        android:layout_height="120dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:background="@color/darkless_gray_color"
         android:gravity="fill"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2">
+        app:layout_constraintTop_toBottomOf="@+id/headerLayout">
 
     </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/synergyHolderLayoutScroll"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/darker_gray_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/championSelectedLayout">
+
+        <LinearLayout
+            android:id="@+id/synergyHolderLayout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="vertical"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"></LinearLayout>
+    </ScrollView>
 
     <View
         android:id="@+id/view"
@@ -79,10 +78,13 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@color/gold"
+        app:layout_constraintBottom_toTopOf="@+id/classSelectorLayoutScroll"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/championSelectedLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/synergyHolderLayoutScroll" />
 
     <ScrollView
         android:id="@+id/classSelectorLayoutScroll"
