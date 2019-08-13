@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/ic_launcher_background"
     tools:context=".HubMain_Activity">
 
     <LinearLayout
@@ -74,8 +75,11 @@
 
     <Button
         android:id="@+id/originButton"
+        style="@style/ButtonSelected"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_weight="1"
         android:onClick="onOriginButtonClicked"
         android:text="@string/OriginButtonString"
@@ -85,8 +89,11 @@
 
     <Button
         android:id="@+id/classButton"
+        style="@style/ButtonDefault"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:onClick="onClassButtonClicked"
         android:text="@string/ClassButtonStirng"
         app:layout_constraintEnd_toStartOf="@+id/originButton"
@@ -95,8 +102,12 @@
 
     <Button
         android:id="@+id/teamBuilderButton"
+        style="@style/ButtonDefault"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/TeamBuilderButtonString"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/dropratesButton"
@@ -105,8 +116,12 @@
 
     <Button
         android:id="@+id/dropratesButton"
+        style="@style/ButtonDefault"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/DropRatesButtonString"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
