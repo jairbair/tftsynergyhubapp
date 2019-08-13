@@ -33,15 +33,20 @@
             android:textAlignment="textEnd" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/synergyHolderLayout"
+    <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/championSelectedLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerLayout"></LinearLayout>
+        app:layout_constraintStart_toStartOf="@+id/championSelectedLayout"
+        app:layout_constraintTop_toBottomOf="@+id/headerLayout">
+
+        <LinearLayout
+            android:id="@+id/synergyHolderLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"></LinearLayout>
+    </ScrollView>
 
     <LinearLayout
         android:id="@+id/championSelectedLayout"
@@ -52,7 +57,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/synergyHolderLayout">
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2">
 
     </LinearLayout>
 
