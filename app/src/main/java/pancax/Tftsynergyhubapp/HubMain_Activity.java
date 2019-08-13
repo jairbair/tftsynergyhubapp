@@ -354,7 +354,7 @@ public class HubMain_Activity extends AppCompatActivity {
                     case "Phantom":{phantomCount++;break;}
                     case "Wild":{wildCount++;break;}
                     case "Void":{voidCount++;break;}
-                    case "Yorlde":{yordleCount++;break;}
+                    case "Yordle":{yordleCount++;break;}
                 }
             }
             for(String className:i.getClassName()){
@@ -506,13 +506,13 @@ public class HubMain_Activity extends AppCompatActivity {
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
         }
-        if(pirateCount==3) {
+        if(pirateCount>=3) {
             TextView text = new TextView(synergySelectedLayout.getContext());
             String textTjom = getString(R.string.pirate_3_text, pirateCount);
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
         }
-        if(phantomCount==2){
+        if(phantomCount>=2){
             TextView text = new TextView(synergySelectedLayout.getContext());
             String textTjom = getString(R.string.phantom_2_text,phantomCount);
             text.setText(textTjom);
@@ -523,8 +523,13 @@ public class HubMain_Activity extends AppCompatActivity {
             String textTjom = getString(R.string.wild_4_text,wildCount);
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
+        } else if(wildCount>=2){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.wild_2_text,wildCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
         }
-        if(voidCount==3){
+        if(voidCount>=3){
             TextView text = new TextView(synergySelectedLayout.getContext());
             String textTjom = getString(R.string.void_3_text,voidCount);
             text.setText(textTjom);
