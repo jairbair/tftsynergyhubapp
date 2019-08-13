@@ -29,8 +29,8 @@ public class HubMain_Activity extends AppCompatActivity {
     //instantiate champions and data for champions
     //holder for Origins and Classes
 
-    static ArrayList<ChampionOrigins> ORIGINS_ARRAY_LIST=new ArrayList<>();
-    static ArrayList<ChampionClasses> CLASSES_ARRAY_LIST=new ArrayList<>();
+    static ArrayList<ChampionOrigins> ORIGINS_ARRAY_LIST = new ArrayList<>();
+    static ArrayList<ChampionClasses> CLASSES_ARRAY_LIST = new ArrayList<>();
     //Setup Origins groupers
     static final ChampionOrigins DEMON = new ChampionOrigins("Demon");
     static final ChampionOrigins DRAGON = new ChampionOrigins("Dragon");
@@ -58,72 +58,72 @@ public class HubMain_Activity extends AppCompatActivity {
     static final ChampionClasses SORCERER = new ChampionClasses("Sorcerer");
 
     //Demon
-    static final Champion AATROX = new Champion("Aatrox",new String[]{"Blademaster"},new String[]{"Demon"});
-    static final Champion VARUS = new Champion("Varus",new String[]{"Ranger"},new String[]{"Demon"});
-    static final Champion MORGANA = new Champion("Morgana",new String[]{"Sorcerer"},new String[]{"Demon"});
-    static final Champion SWAIN = new Champion("Swain",new String[]{"Shapeshifter"},new String[]{"Demon","Imperial"});
-    static final Champion ELISE = new Champion("Elise",new String[]{"Shapeshifter"},new String[]{"Demon"});
-    static final Champion EVELYNN = new Champion("Evelynn",new String[]{"Assassin"},new String[]{"Demon"});
-    static final Champion BRAND = new Champion("Brand",new String[]{"Elementalist"},new String[]{"Demon"});
+    static final Champion AATROX = new Champion("Aatrox", new String[]{"Blademaster"}, new String[]{"Demon"});
+    static final Champion VARUS = new Champion("Varus", new String[]{"Ranger"}, new String[]{"Demon"});
+    static final Champion MORGANA = new Champion("Morgana", new String[]{"Sorcerer"}, new String[]{"Demon"});
+    static final Champion SWAIN = new Champion("Swain", new String[]{"Shapeshifter"}, new String[]{"Demon", "Imperial"});
+    static final Champion ELISE = new Champion("Elise", new String[]{"Shapeshifter"}, new String[]{"Demon"});
+    static final Champion EVELYNN = new Champion("Evelynn", new String[]{"Assassin"}, new String[]{"Demon"});
+    static final Champion BRAND = new Champion("Brand", new String[]{"Elementalist"}, new String[]{"Demon"});
     //Dragon
-    static final Champion SHYVANA = new Champion("Shyvana",new String[]{"Shapeshifter"},new String[]{"Dragon"});
-    static final Champion AURELION_SOL = new Champion("Aurelion Sol",new String[]{"Sorcerer"},new String[]{"Dragon"});
+    static final Champion SHYVANA = new Champion("Shyvana", new String[]{"Shapeshifter"}, new String[]{"Dragon"});
+    static final Champion AURELION_SOL = new Champion("Aurelion Sol", new String[]{"Sorcerer"}, new String[]{"Dragon"});
     //Exile
-    static final Champion YASUO = new Champion("Yasuo",new String[]{"Blademaster"},new String[]{"Exile"});
+    static final Champion YASUO = new Champion("Yasuo", new String[]{"Blademaster"}, new String[]{"Exile"});
     //Glacial
-    static final Champion BRAUM = new Champion("Braum",new String[]{"Guardian"},new String[]{"Glacial"});
-    static final Champion ASHE = new Champion("Ashe",new String[]{"Ranger"},new String[]{"Glacial"});
-    static final Champion SEJUANI = new Champion("Sejuani",new String[]{"Knight"},new String[]{"Glacial"});
-    static final Champion LISSANDRA = new Champion("Lissandra",new String[]{"Elementalist"},new String[]{"Glacial"});
-    static final Champion VOLIBEAR = new Champion("Volibear",new String[]{"Brawler"},new String[]{"Glacial"});
-    static final Champion ANIVIA = new Champion("Anivia",new String[]{"Elementalist"},new String[]{"Glacial"});
+    static final Champion BRAUM = new Champion("Braum", new String[]{"Guardian"}, new String[]{"Glacial"});
+    static final Champion ASHE = new Champion("Ashe", new String[]{"Ranger"}, new String[]{"Glacial"});
+    static final Champion SEJUANI = new Champion("Sejuani", new String[]{"Knight"}, new String[]{"Glacial"});
+    static final Champion LISSANDRA = new Champion("Lissandra", new String[]{"Elementalist"}, new String[]{"Glacial"});
+    static final Champion VOLIBEAR = new Champion("Volibear", new String[]{"Brawler"}, new String[]{"Glacial"});
+    static final Champion ANIVIA = new Champion("Anivia", new String[]{"Elementalist"}, new String[]{"Glacial"});
     //Robot
-    static final Champion BLITZCRANK = new Champion("Blitzcrank",new String[]{"Brawler"},new String[]{"Robot"});
+    static final Champion BLITZCRANK = new Champion("Blitzcrank", new String[]{"Brawler"}, new String[]{"Robot"});
     //Imperial
-    static final Champion DARIUS = new Champion("Darius",new String[]{"Knight"},new String[]{"Imperial"});
-    static final Champion DRAVEN = new Champion("Draven",new String[]{"Blademaster"},new String[]{"Imperial"});
-    static final Champion KATARINA = new Champion("Katarina",new String[]{"Assassin"},new String[]{"Imperial"});
+    static final Champion DARIUS = new Champion("Darius", new String[]{"Knight"}, new String[]{"Imperial"});
+    static final Champion DRAVEN = new Champion("Draven", new String[]{"Blademaster"}, new String[]{"Imperial"});
+    static final Champion KATARINA = new Champion("Katarina", new String[]{"Assassin"}, new String[]{"Imperial"});
     //Swain is also an imperial
     //Noble
-    static final Champion FIORA = new Champion("Fiora",new String[]{"Blademaster"},new String[]{"Noble"});
-    static final Champion VAYNE = new Champion("Vayne",new String[]{"Ranger"},new String[]{"Noble"});
-    static final Champion LEONA = new Champion("Leona",new String[]{"Guardian"},new String[]{"Noble"});
-    static final Champion GAREN = new Champion("Garen",new String[]{"Knight"},new String[]{"Noble"});
-    static final Champion LUCIAN = new Champion("Lucian",new String[]{"Gunslinger"},new String[]{"Noble"});
-    static final Champion KAYLE = new Champion("Kayle",new String[]{"Knight"},new String[]{"Noble"});
+    static final Champion FIORA = new Champion("Fiora", new String[]{"Blademaster"}, new String[]{"Noble"});
+    static final Champion VAYNE = new Champion("Vayne", new String[]{"Ranger"}, new String[]{"Noble"});
+    static final Champion LEONA = new Champion("Leona", new String[]{"Guardian"}, new String[]{"Noble"});
+    static final Champion GAREN = new Champion("Garen", new String[]{"Knight"}, new String[]{"Noble"});
+    static final Champion LUCIAN = new Champion("Lucian", new String[]{"Gunslinger"}, new String[]{"Noble"});
+    static final Champion KAYLE = new Champion("Kayle", new String[]{"Knight"}, new String[]{"Noble"});
     //Ninja
 
-    static final Champion SHEN = new Champion("Shen",new String[]{"Blademaster"},new String[]{"Ninja"});
-    static final Champion KENNEN = new Champion("Kennen",new String[]{"Elementalist"},new String[]{"Ninja","Yordle"});
-    static final Champion ZED = new Champion("Zed",new String[]{"Assassin"},new String[]{"Ninja"});
-    static final Champion AKALI = new Champion("Akali",new String[]{"Assassin"},new String[]{"Ninja"});
+    static final Champion SHEN = new Champion("Shen", new String[]{"Blademaster"}, new String[]{"Ninja"});
+    static final Champion KENNEN = new Champion("Kennen", new String[]{"Elementalist"}, new String[]{"Ninja", "Yordle"});
+    static final Champion ZED = new Champion("Zed", new String[]{"Assassin"}, new String[]{"Ninja"});
+    static final Champion AKALI = new Champion("Akali", new String[]{"Assassin"}, new String[]{"Ninja"});
     //Pirate
-    static final Champion GRAVES = new Champion("Graves",new String[]{"Gunslinger"},new String[]{"Pirate"});
-    static final Champion GANGPLANK = new Champion("Gangplank",new String[]{"Blademaster","Gunslinger"},new String[]{"Pirate"});
-    static final Champion PYKE = new Champion("Pyke",new String[]{"Assassin"},new String[]{"Pirate"});
-    static final Champion MISS_FORTUNE = new Champion("Miss Fortune",new String[]{"Gunslinger"},new String[]{"Pirate"});
-    static final Champion TWISTED_FATE = new Champion("Twisted Fate",new String[]{"Sorcerer"},new String[]{"Pirate"});
+    static final Champion GRAVES = new Champion("Graves", new String[]{"Gunslinger"}, new String[]{"Pirate"});
+    static final Champion GANGPLANK = new Champion("Gangplank", new String[]{"Blademaster", "Gunslinger"}, new String[]{"Pirate"});
+    static final Champion PYKE = new Champion("Pyke", new String[]{"Assassin"}, new String[]{"Pirate"});
+    static final Champion MISS_FORTUNE = new Champion("Miss Fortune", new String[]{"Gunslinger"}, new String[]{"Pirate"});
+    static final Champion TWISTED_FATE = new Champion("Twisted Fate", new String[]{"Sorcerer"}, new String[]{"Pirate"});
     //Phantom
-    static final Champion MORDEKAISER = new Champion("Mordekaiser",new String[]{"Knight"},new String[]{"Phantom"});
-    static final Champion KARTHUS = new Champion("Karthus",new String[]{"Sorcerer"},new String[]{"Phantom"});
-    static final Champion KINDRED = new Champion("Kindred",new String[]{"Ranger"},new String[]{"Phantom"});
+    static final Champion MORDEKAISER = new Champion("Mordekaiser", new String[]{"Knight"}, new String[]{"Phantom"});
+    static final Champion KARTHUS = new Champion("Karthus", new String[]{"Sorcerer"}, new String[]{"Phantom"});
+    static final Champion KINDRED = new Champion("Kindred", new String[]{"Ranger"}, new String[]{"Phantom"});
     //Wild
-    static final Champion AHRI = new Champion("Ahri",new String[]{"Sorcerer"},new String[]{"Wild"});
-    static final Champion WARWICK = new Champion("Warwick",new String[]{"Brawler"},new String[]{"Wild"});
-    static final Champion GNAR = new Champion("Gnar",new String[]{"Shapeshifter"},new String[]{"Wild","Yordle"});
-    static final Champion NIDALEE = new Champion("Nidalee",new String[]{"Shapeshifter"},new String[]{"Wild"});
-    static final Champion RENGAR = new Champion("Rengar",new String[]{"Assassin"},new String[]{"Wild"});
+    static final Champion AHRI = new Champion("Ahri", new String[]{"Sorcerer"}, new String[]{"Wild"});
+    static final Champion WARWICK = new Champion("Warwick", new String[]{"Brawler"}, new String[]{"Wild"});
+    static final Champion GNAR = new Champion("Gnar", new String[]{"Shapeshifter"}, new String[]{"Wild", "Yordle"});
+    static final Champion NIDALEE = new Champion("Nidalee", new String[]{"Shapeshifter"}, new String[]{"Wild"});
+    static final Champion RENGAR = new Champion("Rengar", new String[]{"Assassin"}, new String[]{"Wild"});
     //Void
-    static final Champion KHAZIX = new Champion("Kha'Zix",new String[]{"Assassin"},new String[]{"Void"});
-    static final Champion REKSAI = new Champion("Rek'Sai",new String[]{"Brawler"},new String[]{"Void"});
-    static final Champion KASSADIN = new Champion("Kassadin",new String[]{"Sorcerer"},new String[]{"Void"});
-    static final Champion CHOGATH = new Champion("Cho'Gath",new String[]{"Brawler"},new String[]{"Void"});
+    static final Champion KHAZIX = new Champion("Kha'Zix", new String[]{"Assassin"}, new String[]{"Void"});
+    static final Champion REKSAI = new Champion("Rek'Sai", new String[]{"Brawler"}, new String[]{"Void"});
+    static final Champion KASSADIN = new Champion("Kassadin", new String[]{"Sorcerer"}, new String[]{"Void"});
+    static final Champion CHOGATH = new Champion("Cho'Gath", new String[]{"Brawler"}, new String[]{"Void"});
     //Yordle
-    static final Champion TRISTANA = new Champion("Tristana",new String[]{"Gunslinger"},new String[]{"Yordle"});
-    static final Champion POPPY = new Champion("Poppy",new String[]{"Knight"},new String[]{"Yordle"});
+    static final Champion TRISTANA = new Champion("Tristana", new String[]{"Gunslinger"}, new String[]{"Yordle"});
+    static final Champion POPPY = new Champion("Poppy", new String[]{"Knight"}, new String[]{"Yordle"});
     //kennen is also a yordle
-    static final Champion LULU = new Champion("Lulu",new String[]{"Sorcerer"},new String[]{"Yordle"});
-    static final Champion VEIGAR = new Champion("Veigar",new String[]{"Sorcerer"},new String[]{"Yordle"});
+    static final Champion LULU = new Champion("Lulu", new String[]{"Sorcerer"}, new String[]{"Yordle"});
+    static final Champion VEIGAR = new Champion("Veigar", new String[]{"Sorcerer"}, new String[]{"Yordle"});
     //gnar is also a yordle
 
     // Do actually important stuff
@@ -138,6 +138,7 @@ public class HubMain_Activity extends AppCompatActivity {
     Button originButton;
     Button classButton;
     boolean originOrClass;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -154,13 +155,13 @@ public class HubMain_Activity extends AppCompatActivity {
         originButton = findViewById(R.id.originButton);
         classButton = findViewById(R.id.classButton);
         //true for origin false for class
-        originOrClass=false;
+        originOrClass = false;
         makeOriginSelectorLayout();
         makeClassSelectorLayout();
 
     }
 
-    private void setupChampions(){
+    private void setupChampions() {
         //setup Origins
         {
             DEMON.addChampion(VARUS);
@@ -297,7 +298,8 @@ public class HubMain_Activity extends AppCompatActivity {
 
         }
     }
-    private void setupLists(){
+
+    private void setupLists() {
         ORIGINS_ARRAY_LIST.add(DEMON);
         ORIGINS_ARRAY_LIST.add(DRAGON);
         ORIGINS_ARRAY_LIST.add(EXILE);
@@ -325,73 +327,145 @@ public class HubMain_Activity extends AppCompatActivity {
         CLASSES_ARRAY_LIST.add(SORCERER);
 
     }
-    public void updateHolder(){
+
+    public void updateHolder() {
         ArrayList<Champion> currentList = holder.getCurrentChampionList();
-        int demonCount=0;
-        int dragonCount=0;
-        int exileCount=0;
-        int glacialCount=0;
-        int robotCount=0;
-        int imperialCount=0;
-        int nobleCount=0;
-        int ninjaCount=0;
-        int pirateCount=0;
-        int phantomCount=0;
-        int wildCount=0;
-        int voidCount=0;
-        int yordleCount=0;
-        int assassinCount=0;
-        int blademasterCount=0;
-        int brawlerCount=0;
-        int elementalistCount=0;
-        int guardianCount=0;
-        int gunslingerCount=0;
-        int knightCount=0;
-        int rangerCount=0;
-        int shapeshifterCount=0;
-        int sorcererCount=0;
-        for(Champion i: currentList){
-            for(String name:i.getOriginName()){
-                switch(name){
-                    case "Demon":{demonCount++;break;}
-                    case "Dragon":{dragonCount++;break;}
-                    case "Exile":{exileCount++;break;}
-                    case "Glacial":{glacialCount++;break;}
-                    case "Robot":{robotCount++;break;}
-                    case "Imperial":{imperialCount++;break;}
-                    case "Noble":{nobleCount++;break;}
-                    case "Ninja":{ninjaCount++;break;}
-                    case "Pirate":{pirateCount++;break;}
-                    case "Phantom":{phantomCount++;break;}
-                    case "Wild":{wildCount++;break;}
-                    case "Void":{voidCount++;break;}
-                    case "Yordle":{yordleCount++;break;}
+        int demonCount = 0;
+        int dragonCount = 0;
+        int exileCount = 0;
+        int glacialCount = 0;
+        int robotCount = 0;
+        int imperialCount = 0;
+        int nobleCount = 0;
+        int ninjaCount = 0;
+        int pirateCount = 0;
+        int phantomCount = 0;
+        int wildCount = 0;
+        int voidCount = 0;
+        int yordleCount = 0;
+        int assassinCount = 0;
+        int blademasterCount = 0;
+        int brawlerCount = 0;
+        int elementalistCount = 0;
+        int guardianCount = 0;
+        int gunslingerCount = 0;
+        int knightCount = 0;
+        int rangerCount = 0;
+        int shapeshifterCount = 0;
+        int sorcererCount = 0;
+        for (Champion i : currentList) {
+            for (String name : i.getOriginName()) {
+                switch (name) {
+                    case "Demon": {
+                        demonCount++;
+                        break;
+                    }
+                    case "Dragon": {
+                        dragonCount++;
+                        break;
+                    }
+                    case "Exile": {
+                        exileCount++;
+                        break;
+                    }
+                    case "Glacial": {
+                        glacialCount++;
+                        break;
+                    }
+                    case "Robot": {
+                        robotCount++;
+                        break;
+                    }
+                    case "Imperial": {
+                        imperialCount++;
+                        break;
+                    }
+                    case "Noble": {
+                        nobleCount++;
+                        break;
+                    }
+                    case "Ninja": {
+                        ninjaCount++;
+                        break;
+                    }
+                    case "Pirate": {
+                        pirateCount++;
+                        break;
+                    }
+                    case "Phantom": {
+                        phantomCount++;
+                        break;
+                    }
+                    case "Wild": {
+                        wildCount++;
+                        break;
+                    }
+                    case "Void": {
+                        voidCount++;
+                        break;
+                    }
+                    case "Yordle": {
+                        yordleCount++;
+                        break;
+                    }
                 }
             }
-            for(String className:i.getClassName()){
-                switch(className){
+            for (String className : i.getClassName()) {
+                switch (className) {
                     /* start adding cases for classes here*/
-                    case "Assassin":{assassinCount++;break;}
-                    case "Blademaster":{blademasterCount++;break;}
-                    case "Brawler":{brawlerCount++;break;}
-                    case "Elementalist":{elementalistCount++;break;}
-                    case "Guardian":{guardianCount++;break;}
-                    case "Gunslinger":{gunslingerCount++;break;}
-                    case "Knight":{knightCount++;break;}
-                    case "Ranger":{rangerCount++;break;}
-                    case "Shapeshifter":{shapeshifterCount++;break;}
-                    case "Sorcerer":{sorcererCount++;break;}
+                    case "Assassin": {
+                        assassinCount++;
+                        break;
+                    }
+                    case "Blademaster": {
+                        blademasterCount++;
+                        break;
+                    }
+                    case "Brawler": {
+                        brawlerCount++;
+                        break;
+                    }
+                    case "Elementalist": {
+                        elementalistCount++;
+                        break;
+                    }
+                    case "Guardian": {
+                        guardianCount++;
+                        break;
+                    }
+                    case "Gunslinger": {
+                        gunslingerCount++;
+                        break;
+                    }
+                    case "Knight": {
+                        knightCount++;
+                        break;
+                    }
+                    case "Ranger": {
+                        rangerCount++;
+                        break;
+                    }
+                    case "Shapeshifter": {
+                        shapeshifterCount++;
+                        break;
+                    }
+                    case "Sorcerer": {
+                        sorcererCount++;
+                        break;
+                    }
                 }
             }
 
         }
-        checkSynergies(demonCount,dragonCount,exileCount,glacialCount,robotCount, imperialCount, nobleCount,
-                        ninjaCount,pirateCount,phantomCount,wildCount,voidCount,yordleCount,assassinCount,blademasterCount,brawlerCount,elementalistCount,guardianCount,gunslingerCount,knightCount,rangerCount,shapeshifterCount,sorcererCount);
+        checkSynergies(demonCount, dragonCount, exileCount, glacialCount, robotCount, imperialCount, nobleCount,
+                ninjaCount, pirateCount, phantomCount, wildCount, voidCount, yordleCount, assassinCount, blademasterCount, brawlerCount, elementalistCount, guardianCount, gunslingerCount, knightCount, rangerCount, shapeshifterCount, sorcererCount);
         //update Champions in holder text
         updateNumberOfChampsInHolderText(currentList);
         updateChampionImages(currentList);
 
+
     }
+
     public void updateChampionImages(ArrayList<Champion> champions) {
         championSelectedLayout.removeAllViewsInLayout();
         Context layoutContext = championSelectedLayout.getContext();
@@ -405,9 +479,9 @@ public class HubMain_Activity extends AppCompatActivity {
             counter++;
             LinearLayout holderView = new LinearLayout(championSelectedLayout.getContext());
             holderView.setGravity(Gravity.CENTER);
-            for (int i = 0; i < diviser && i+counter*diviser<champions.size(); i++) {
+            for (int i = 0; i < diviser && i + counter * diviser < champions.size(); i++) {
                 ImageButton button = new ImageButton(layoutContext);
-                button.setTag(champions.get(i+counter*diviser).getName());
+                button.setTag(champions.get(i + counter * diviser).getName());
                 button.setId(View.generateViewId());
                 button.setBackgroundColor(Color.TRANSPARENT);
                 button.setOnClickListener(new View.OnClickListener() {
@@ -416,331 +490,341 @@ public class HubMain_Activity extends AppCompatActivity {
                         String name = (String) (view.getTag());
                         holder.removeChampionFromList(name);
                         updateHolder();
+                        updateAllChampionImages(originSelectorLayout);
+                        updateAllChampionImages(classSelectorLayout);
                     }
                 });
 
                 LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams((int) getResources().getDimension(R.dimen.champion_selected_width), (int) getResources().getDimension(R.dimen.champion_selected_height));
                 buttonParams.setMargins(8, 8, 8, 8);
                 holderView.addView(button, buttonParams);
-                String nameThing = "avatar_" + champions.get(i+counter*diviser).getName().toLowerCase().replaceAll("[^a-z]", "") + "";
+                String nameThing = "avatar_" + champions.get(i + counter * diviser).getName().toLowerCase().replaceAll("[^a-z]", "") + "";
                 int id = getResources().getIdentifier(nameThing, "drawable", layoutContext.getPackageName());
                 button.setBackground(getResources().getDrawable(id, layoutContext.getTheme()));
             }
             championSelectedLayout.addView(holderView);
-            repeats/=diviser;
+            repeats /= diviser;
         }
     }
+
     public void checkSynergies(int demonCount, int dragonCount,
-            int exileCount,
-            int glacialCount,
-            int robotCount,
-            int imperialCount,
-            int nobleCount,
-            int ninjaCount,
-            int pirateCount,
-            int phantomCount,
-            int wildCount,
-            int voidCount,
-            int yordleCount, /*add all the synergies into this passer*/
-            int assassinCount,
-            int blademasterCount,
-            int brawlerCount,
-            int elementalistCount,
-            int guardianCount,
-            int gunslingerCount,
-            int knightCount,
-            int rangerCount,
-            int shapeshifterCount,
-            int sorcererCount){
+                               int exileCount,
+                               int glacialCount,
+                               int robotCount,
+                               int imperialCount,
+                               int nobleCount,
+                               int ninjaCount,
+                               int pirateCount,
+                               int phantomCount,
+                               int wildCount,
+                               int voidCount,
+                               int yordleCount, /*add all the synergies into this passer*/
+                               int assassinCount,
+                               int blademasterCount,
+                               int brawlerCount,
+                               int elementalistCount,
+                               int guardianCount,
+                               int gunslingerCount,
+                               int knightCount,
+                               int rangerCount,
+                               int shapeshifterCount,
+                               int sorcererCount) {
         synergySelectedLayout.removeAllViewsInLayout();
         //check ORIGINS
-        if(demonCount>=6){
+        if (demonCount >= 6) {
             TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.demon_6_text,demonCount);
+            String textTjom = getString(R.string.demon_6_text, demonCount);
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
-        }else if(demonCount>=4){
+        } else if (demonCount >= 4) {
             TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.demon_4_text,demonCount);
+            String textTjom = getString(R.string.demon_4_text, demonCount);
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
-        }else if(demonCount>=2){
+        } else if (demonCount >= 2) {
             TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.demon_2_text,demonCount);
-            text.setText(textTjom);
-            synergySelectedLayout.addView(text);
-        }
-        if(dragonCount>=2){
-            TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.dragon_2_text,dragonCount);
+            String textTjom = getString(R.string.demon_2_text, demonCount);
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
         }
-        if(exileCount>=1){
+        if (dragonCount >= 2) {
             TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.exile_1_text,exileCount);
+            String textTjom = getString(R.string.dragon_2_text, dragonCount);
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
         }
-        if(glacialCount>=6){
+        if (exileCount >= 1) {
             TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.glacial_6_text,glacialCount);
-            text.setText(textTjom);
-            synergySelectedLayout.addView(text);
-        } else if(glacialCount>=4){
-            TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.glacial_4_text,glacialCount);
-            text.setText(textTjom);
-            synergySelectedLayout.addView(text);
-        } else if(glacialCount>=2){
-            TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.glacial_2_text,glacialCount);
+            String textTjom = getString(R.string.exile_1_text, exileCount);
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
         }
-        if(robotCount>=1){
+        if (glacialCount >= 6) {
             TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.robot_1_text,robotCount);
+            String textTjom = getString(R.string.glacial_6_text, glacialCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        } else if (glacialCount >= 4) {
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.glacial_4_text, glacialCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        } else if (glacialCount >= 2) {
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.glacial_2_text, glacialCount);
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
         }
-        if(imperialCount>=4){
+        if (robotCount >= 1) {
             TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.imperial_4_text,imperialCount);
-            text.setText(textTjom);
-            synergySelectedLayout.addView(text);
-        }else if(imperialCount>=2){
-            TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.imperial_2_text,imperialCount);
+            String textTjom = getString(R.string.robot_1_text, robotCount);
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
         }
-        if(nobleCount>=6){
+        if (imperialCount >= 4) {
             TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.noble_6_text,nobleCount);
+            String textTjom = getString(R.string.imperial_4_text, imperialCount);
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
-        } else if(nobleCount>=3){
+        } else if (imperialCount >= 2) {
             TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.noble_3_text,nobleCount);
-            text.setText(textTjom);
-            synergySelectedLayout.addView(text);
-        }
-        if(ninjaCount==1){
-            TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.ninja_1_text,ninjaCount);
-            text.setText(textTjom);
-            synergySelectedLayout.addView(text);
-        }else if(ninjaCount==4){
-            TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.ninja_4_text,ninjaCount);
+            String textTjom = getString(R.string.imperial_2_text, imperialCount);
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
         }
-        if(pirateCount>=3) {
+        if (nobleCount >= 6) {
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.noble_6_text, nobleCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        } else if (nobleCount >= 3) {
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.noble_3_text, nobleCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }
+        if (ninjaCount == 1) {
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.ninja_1_text, ninjaCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        } else if (ninjaCount == 4) {
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.ninja_4_text, ninjaCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }
+        if (pirateCount >= 3) {
             TextView text = new TextView(synergySelectedLayout.getContext());
             String textTjom = getString(R.string.pirate_3_text, pirateCount);
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
         }
-        if(phantomCount>=2){
+        if (phantomCount >= 2) {
             TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.phantom_2_text,phantomCount);
+            String textTjom = getString(R.string.phantom_2_text, phantomCount);
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
         }
-        if(wildCount>=4){
+        if (wildCount >= 4) {
             TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.wild_4_text,wildCount);
+            String textTjom = getString(R.string.wild_4_text, wildCount);
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
-        } else if(wildCount>=2){
+        } else if (wildCount >= 2) {
             TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.wild_2_text,wildCount);
-            text.setText(textTjom);
-            synergySelectedLayout.addView(text);
-        }
-        if(voidCount>=3){
-            TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.void_3_text,voidCount);
+            String textTjom = getString(R.string.wild_2_text, wildCount);
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
         }
-        if(yordleCount>=6){
+        if (voidCount >= 3) {
             TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.yordle_6_text,yordleCount);
+            String textTjom = getString(R.string.void_3_text, voidCount);
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
-        }else if(yordleCount>=3){
+        }
+        if (yordleCount >= 6) {
             TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.yordle_3_text,yordleCount);
+            String textTjom = getString(R.string.yordle_6_text, yordleCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        } else if (yordleCount >= 3) {
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.yordle_3_text, yordleCount);
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
         }
         //check CLASSES
-        if(assassinCount>=6){
+        if (assassinCount >= 6) {
             TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.assassin_6_text,assassinCount);
+            String textTjom = getString(R.string.assassin_6_text, assassinCount);
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
-        } else if(assassinCount>=3){
+        } else if (assassinCount >= 3) {
             TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.assassin_3_text,assassinCount);
-            text.setText(textTjom);
-            synergySelectedLayout.addView(text);
-        }
-        if(blademasterCount>=6){
-            TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.blademaster_6_text,blademasterCount);
-            text.setText(textTjom);
-            synergySelectedLayout.addView(text);
-        } else if(blademasterCount>=3){
-            TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.blademaster_3_text,blademasterCount);
+            String textTjom = getString(R.string.assassin_3_text, assassinCount);
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
         }
-        if(brawlerCount>=4){
+        if (blademasterCount >= 6) {
             TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.brawler_4_text,brawlerCount);
+            String textTjom = getString(R.string.blademaster_6_text, blademasterCount);
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
-        } else if(brawlerCount>=2){
+        } else if (blademasterCount >= 3) {
             TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.brawler_2_text,brawlerCount);
-            text.setText(textTjom);
-            synergySelectedLayout.addView(text);
-        }
-        if(elementalistCount>=3){
-            TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.elementalist_3_text,elementalistCount);
+            String textTjom = getString(R.string.blademaster_3_text, blademasterCount);
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
         }
-        if(guardianCount>=2){
+        if (brawlerCount >= 4) {
             TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.guardian_2_text,guardianCount);
+            String textTjom = getString(R.string.brawler_4_text, brawlerCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        } else if (brawlerCount >= 2) {
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.brawler_2_text, brawlerCount);
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
         }
-        if(gunslingerCount>=4){
+        if (elementalistCount >= 3) {
             TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.gunslinger_4_text,gunslingerCount);
-            text.setText(textTjom);
-            synergySelectedLayout.addView(text);
-        } else if(gunslingerCount>=2){
-            TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.gunslinger_2_text,gunslingerCount);
+            String textTjom = getString(R.string.elementalist_3_text, elementalistCount);
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
         }
-        if(knightCount>=6){
+        if (guardianCount >= 2) {
             TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.knight_6_text,knightCount);
-            text.setText(textTjom);
-            synergySelectedLayout.addView(text);
-        } else if(knightCount>=4){
-            TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.knight_4_text,knightCount);
-            text.setText(textTjom);
-            synergySelectedLayout.addView(text);
-        } else if(knightCount>=2){
-            TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.knight_2_text,knightCount);
+            String textTjom = getString(R.string.guardian_2_text, guardianCount);
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
         }
-        if(rangerCount>=4){
+        if (gunslingerCount >= 4) {
             TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.ranger_4_text,rangerCount);
+            String textTjom = getString(R.string.gunslinger_4_text, gunslingerCount);
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
-        } else if(rangerCount>=2){
+        } else if (gunslingerCount >= 2) {
             TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.ranger_2_text,rangerCount);
-            text.setText(textTjom);
-            synergySelectedLayout.addView(text);
-        }
-        if(shapeshifterCount>=3){
-            TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.shapeshifter_3_text,shapeshifterCount);
+            String textTjom = getString(R.string.gunslinger_2_text, gunslingerCount);
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
         }
-        if(sorcererCount>=6){
+        if (knightCount >= 6) {
             TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.sorcerer_6_text,sorcererCount);
+            String textTjom = getString(R.string.knight_6_text, knightCount);
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
-        } else if(sorcererCount>=3){
+        } else if (knightCount >= 4) {
             TextView text = new TextView(synergySelectedLayout.getContext());
-            String textTjom = getString(R.string.sorcerer_3_text,sorcererCount);
+            String textTjom = getString(R.string.knight_4_text, knightCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        } else if (knightCount >= 2) {
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.knight_2_text, knightCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }
+        if (rangerCount >= 4) {
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.ranger_4_text, rangerCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        } else if (rangerCount >= 2) {
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.ranger_2_text, rangerCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }
+        if (shapeshifterCount >= 3) {
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.shapeshifter_3_text, shapeshifterCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }
+        if (sorcererCount >= 6) {
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.sorcerer_6_text, sorcererCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        } else if (sorcererCount >= 3) {
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.sorcerer_3_text, sorcererCount);
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
         }
 
     }
-    public void updateNumberOfChampsInHolderText(ArrayList<Champion> currentList){
-        numberOfChampsInHolderText.setText(currentList.size()+"/10\t\t");
+
+    public void updateNumberOfChampsInHolderText(ArrayList<Champion> currentList) {
+        numberOfChampsInHolderText.setText(currentList.size() + "/10\t\t");
     }
-    public void makeOriginSelectorLayout(){
 
-            for(int i=0;i<ORIGINS_ARRAY_LIST.size();i++) {
+    public void makeOriginSelectorLayout() {
 
-                ChampionOrigins origin = ORIGINS_ARRAY_LIST.get(i);
-                ArrayList<Champion> champions = origin.getList();
-                LinearLayout.LayoutParams textViewParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                textViewParams.setMargins(8, 0, 8, 16);
-                LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams((int) getResources().getDimension(R.dimen.champion_selector_width), (int) getResources().getDimension(R.dimen.champion_selector_height));
-                buttonParams.setMargins(8, 0, 8, 8);
-                int repeats = champions.size();
-                int counter = -1;
-                DisplayMetrics displayMetrics = new DisplayMetrics();
-                getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-                float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
-                int diviser = (int) Math.ceil(dpWidth)/ 70 /*width of images + margins and stuff*/;
-                while (repeats > 0) {
-                    LinearLayout originView = new LinearLayout(originSelectorLayout.getContext());
-                    counter++;
-                    if(counter==0){
-                        TextView originName = new TextView(originView.getContext());
-                        originName.setText(origin.getOriginName());
-                        originSelectorLayout.addView(originName,textViewParams);
-                        makeViewParams(originView);
-                    }
-                    for (int j = 0; j < diviser&&j+counter*diviser<champions.size(); j++) {
-                        ImageButton button = new ImageButton(originView.getContext());
-                        button.setTag(champions.get(j+counter*diviser).getName());
-                        button.setId(View.generateViewId());
-                        button.setBackgroundColor(Color.TRANSPARENT);
-                        button.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                String name = (String) (view.getTag());
-                                if (!holder.isChampionInList(name)) {
-                                    holder.addChampionToList(name);
-                                    Log.d("Holdercurrent", holder.getCurrentChampionList().toString());
-                                    updateHolder();
-                                } else {
-                                    holder.removeChampionFromList(name);
-                                    updateHolder();
-                                }
-                            }
-                        });
-                        originView.addView(button, buttonParams);
+        for (int i = 0; i < ORIGINS_ARRAY_LIST.size(); i++) {
 
-                        String nameThing = "avatar_" + champions.get(j+counter*diviser).getName().toLowerCase().replaceAll("[^a-z]", "") + "";
-                        int id = getResources().getIdentifier(nameThing, "drawable", originView.getContext().getPackageName());
-                        button.setBackground(getResources().getDrawable(id, originView.getContext().getTheme()));
-                    }
-                    originSelectorLayout.addView(originView);
-                    repeats/=diviser;
+            ChampionOrigins origin = ORIGINS_ARRAY_LIST.get(i);
+            ArrayList<Champion> champions = origin.getList();
+            LinearLayout.LayoutParams textViewParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            textViewParams.setMargins(8, 0, 8, 16);
+            LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams((int) getResources().getDimension(R.dimen.champion_selector_width), (int) getResources().getDimension(R.dimen.champion_selector_height));
+            buttonParams.setMargins(8, 0, 8, 8);
+            int repeats = champions.size();
+            int counter = -1;
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+            float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
+            int diviser = (int) Math.ceil(dpWidth) / 70 /*width of images + margins and stuff*/;
+            while (repeats > 0) {
+                LinearLayout originView = new LinearLayout(originSelectorLayout.getContext());
+                counter++;
+                if (counter == 0) {
+                    TextView originName = new TextView(originView.getContext());
+                    originName.setText(origin.getOriginName());
+                    originSelectorLayout.addView(originName, textViewParams);
+                    makeViewParams(originView);
                 }
-            }
-    }
-    public void makeClassSelectorLayout(){
+                for (int j = 0; j < diviser && j + counter * diviser < champions.size(); j++) {
+                    ImageButton button = new ImageButton(originView.getContext());
+                    button.setTag(champions.get(j + counter * diviser).getName());
+                    button.setId(View.generateViewId());
+                    button.setBackgroundColor(Color.TRANSPARENT);
+                    button.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            String name = (String) (view.getTag());
+                            if (!holder.isChampionInList(name)) {
+                                holder.addChampionToList(name);
+                                Log.d("Holdercurrent", holder.getCurrentChampionList().toString());
+                                view.setForeground(getDrawable(R.drawable.red_x_drawable));
+                                updateHolder();
+                                updateAllChampionImages(originSelectorLayout);
+                            } else {
+                                holder.removeChampionFromList(name);
+                                view.setForeground(new ColorDrawable(Color.TRANSPARENT));
+                                updateHolder();
+                                updateAllChampionImages(originSelectorLayout);
+                            }
+                        }
+                    });
+                    originView.addView(button, buttonParams);
 
-        for(int i=0;i<CLASSES_ARRAY_LIST.size();i++) {
+                    String nameThing = "avatar_" + champions.get(j + counter * diviser).getName().toLowerCase().replaceAll("[^a-z]", "") + "";
+                    int id = getResources().getIdentifier(nameThing, "drawable", originView.getContext().getPackageName());
+                    button.setBackground(getResources().getDrawable(id, originView.getContext().getTheme()));
+                }
+                originSelectorLayout.addView(originView);
+                repeats /= diviser;
+            }
+        }
+    }
+
+    public void makeClassSelectorLayout() {
+
+        for (int i = 0; i < CLASSES_ARRAY_LIST.size(); i++) {
             ChampionClasses classes = CLASSES_ARRAY_LIST.get(i);
             ArrayList<Champion> champions = classes.getList();
             LinearLayout.LayoutParams textViewParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -753,23 +837,22 @@ public class HubMain_Activity extends AppCompatActivity {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
             float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
-            int diviser = (int) Math.ceil(dpWidth)/ 70 /*width of images + margins and stuff*/;
+            int diviser = (int) Math.ceil(dpWidth) / 70 /*width of images + margins and stuff*/;
             while (repeats > 0) {
                 counter++;
                 LinearLayout classView = new LinearLayout(classSelectorLayout.getContext());
-                if(counter==0)
-                {
+                if (counter == 0) {
                     TextView className = new TextView(classView.getContext());
                     className.setText(classes.getName());
-                    classSelectorLayout.addView(className,textViewParams);
+                    classSelectorLayout.addView(className, textViewParams);
 
                     //makeViewParams(classView);
                     classView.setOrientation(LinearLayout.HORIZONTAL);
                     classView.setGravity(Gravity.FILL);
                 }
-                for (int j = 0; j < diviser && j+counter*diviser<champions.size(); j++) {
+                for (int j = 0; j < diviser && j + counter * diviser < champions.size(); j++) {
                     ImageButton button = new ImageButton(classView.getContext());
-                    button.setTag(champions.get(j+counter*diviser).getName());
+                    button.setTag(champions.get(j + counter * diviser).getName());
                     button.setId(View.generateViewId());
                     button.setBackgroundColor(Color.TRANSPARENT);
                     button.setOnClickListener(new View.OnClickListener() {
@@ -777,51 +860,77 @@ public class HubMain_Activity extends AppCompatActivity {
                         public void onClick(View view) {
                             String name = (String) (view.getTag());
                             if (!holder.isChampionInList(name)) {
-                                if(holder.addChampionToList(name)) {
+                                if (holder.addChampionToList(name)) {
                                     Log.d("Holdercurrent", holder.getCurrentChampionList().toString());
                                     view.setForeground(getDrawable(R.drawable.red_x_drawable));
                                     updateHolder();
+                                    updateAllChampionImages(classSelectorLayout);
                                 }
                             } else {
                                 holder.removeChampionFromList(name);
                                 updateHolder();
                                 view.setForeground(new ColorDrawable(Color.TRANSPARENT));
+                                updateAllChampionImages(classSelectorLayout);
                             }
                         }
                     });
                     classView.addView(button, buttonParams);
-                    String nameThing = "avatar_" + champions.get(j+counter*diviser).getName().toLowerCase().replaceAll("[^a-z]", "") + "";
+                    String nameThing = "avatar_" + champions.get(j + counter * diviser).getName().toLowerCase().replaceAll("[^a-z]", "") + "";
                     int id = getResources().getIdentifier(nameThing, "drawable", classView.getContext().getPackageName());
                     button.setBackground(getResources().getDrawable(id, classView.getContext().getTheme()));
                 }
                 classSelectorLayout.addView(classView);
-                repeats = repeats/diviser;
+                repeats = repeats / diviser;
             }
 
         }
 
     }
 
-    public void makeViewParams(LinearLayout view){
+    public void makeViewParams(LinearLayout view) {
         view.setGravity(Gravity.FILL);
         view.setOrientation(LinearLayout.HORIZONTAL);
     }
-    public void onClassButtonClicked(View v){
+
+    public void onClassButtonClicked(View v) {
         originSelectorLayoutScroll.setVisibility(View.INVISIBLE);
         classSelectorLayoutScroll.setVisibility(View.VISIBLE);
-        classButton.setBackground(getResources().getDrawable(R.drawable.button_selected_shape,this.getTheme()));
-        originButton.setBackground(getResources().getDrawable(R.drawable.button_default_shape,this.getTheme()));
+        classButton.setBackground(getResources().getDrawable(R.drawable.button_selected_shape, this.getTheme()));
+        originButton.setBackground(getResources().getDrawable(R.drawable.button_default_shape, this.getTheme()));
         originButton.setTextColor(ContextCompat.getColor(this, R.color.gold));
         classButton.setTextColor(ContextCompat.getColor(this, R.color.ic_launcher_background));
+
+        updateAllChampionImages(classSelectorLayout);
     }
-    public void onOriginButtonClicked(View v){
+    public void updateAllChampionImages(LinearLayout layout){
+        for (int i = 0; i < layout.getChildCount(); i++) {
+            View childview = layout.getChildAt(i);
+            if (childview instanceof LinearLayout) {
+                LinearLayout chillview=(LinearLayout) childview;
+                for (int j = 0; j < chillview.getChildCount(); j++) {
+                    View childviewchild = chillview.getChildAt(j);
+                    if(childviewchild instanceof ImageButton) {
+                        if (holder.isChampionInList(childviewchild.getTag().toString())) {
+                            childviewchild.setForeground(getDrawable(R.drawable.red_x_drawable));
+                        } else {
+                            childviewchild.setForeground(new ColorDrawable(Color.TRANSPARENT));
+                        }
+                    }
+                }
+            }
+        }
+    }
+    public void onOriginButtonClicked(View v) {
 
         classSelectorLayoutScroll.setVisibility(View.INVISIBLE);
         originSelectorLayoutScroll.setVisibility(View.VISIBLE);
 
-        classButton.setBackground(getResources().getDrawable(R.drawable.button_default_shape,this.getTheme()));
-        originButton.setBackground(getResources().getDrawable(R.drawable.button_selected_shape,this.getTheme()));
+        classButton.setBackground(getResources().getDrawable(R.drawable.button_default_shape, this.getTheme()));
+        originButton.setBackground(getResources().getDrawable(R.drawable.button_selected_shape, this.getTheme()));
         originButton.setTextColor(ContextCompat.getColor(this, R.color.ic_launcher_background));
         classButton.setTextColor(ContextCompat.getColor(this, R.color.gold));
+
+        updateAllChampionImages(originSelectorLayout);
     }
 }
+
