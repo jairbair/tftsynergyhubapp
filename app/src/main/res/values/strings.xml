@@ -74,8 +74,8 @@
     <string name="sorcerer_3_text">(%1d) Sorcerer - Sorcerers gain double mana from attacks. +40%% AP to all allies</string>
     <string name="sorcerer_6_text">(%1d) Sorcerer - Sorcerers gain double mana from attacks. +100%% AP to all allies</string>
 
-    <string name="hextech_4_text">(%1d) Hextech - Disable enemy items for 8s within 2 hexes of the target at the start of combat</string>
-    <string name="hextech_2_text">(%1d) Hextech - Disable enemy items for 8s within 1 hex of the target at the start of combat</string>
+    <string name="hextech_4_text">(%1d) Hextech - Disable enemy items for 8s within 2 hexes of an enemy at the start of combat</string>
+    <string name="hextech_2_text">(%1d) Hextech - Disable enemy items for 8s within 1 hex of an enemy at the start of combat</string>
 
 
 </resources>

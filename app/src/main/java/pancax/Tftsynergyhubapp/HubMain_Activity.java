@@ -82,6 +82,7 @@ public class HubMain_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hub_main_);
+        //setupChampions();
         setupLists();
         createChampions();
         numberOfChampsInHolderText = findViewById(R.id.numberOfChampsText);
@@ -103,12 +104,10 @@ public class HubMain_Activity extends AppCompatActivity {
     private void createChampions() {
         try {
             JSONObject jsonObject = new JSONObject(loadJSONFromAsset(this));
-            Log.d("PUTTING IN PLACE","Putting champions in place!");
             JSONArray jsonArray = jsonObject.getJSONArray("champions");
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonChamp = jsonArray.getJSONObject(i);
                 String name = jsonChamp.getString("name");
-                String[] originName = {jsonChamp.getString("origin")};
                 int rarity = jsonChamp.getInt("rarity");
                 Champion champion;
                 if(jsonChamp.getString("class").contains("-")) {
@@ -116,12 +115,30 @@ public class HubMain_Activity extends AppCompatActivity {
                     String arg1 = s.substring(0, s.indexOf('-'));
                     String arg2 = s.substring(s.indexOf('-')+1);
                     String[] className = {arg1, arg2};
-                    champion = new Champion(name, className, originName, rarity);
-                } else {
-                    String[] className = {jsonChamp.getString("class")};
+                    String[] originName = null;
+                    if(jsonChamp.getString("origin").contains("-")) {
+                        String s2 = jsonChamp.getString("origin");
+                        String arg1s = s2.substring(0, s2.indexOf('-'));
+                        String arg2s = s2.substring(s2.indexOf('-')+1);
+                        originName = new String[]{arg1s, arg2s};
+                    } else {
+                        originName = new String[]{jsonChamp.getString("origin")};
+                    }
                     champion = new Champion(name, className, originName, rarity);
                 }
-                Log.d("CHA","CHAMPION "+champion.getName()+" "+Arrays.toString(champion.getClassName())+" "+Arrays.toString(champion.getOriginName())+" "+champion.getRarity());
+                else {
+                    String[] className = {jsonChamp.getString("class")};
+                    String[] originName= null;
+                    if(jsonChamp.getString("origin").contains("-")) {
+                        String s2 = jsonChamp.getString("origin");
+                        String arg1s = s2.substring(0, s2.indexOf('-'));
+                        String arg2s = s2.substring(s2.indexOf('-')+1);
+                        originName = new String[]{arg1s, arg2s};
+                    } else {
+                        originName = new String[]{jsonChamp.getString("origin")};
+                    }
+                    champion = new Champion(name, className, originName, rarity);
+                }
                 putChampionInItsPlace(champion);
             }
         } catch (Exception e) {
@@ -132,17 +149,15 @@ public class HubMain_Activity extends AppCompatActivity {
 
     private void putChampionInItsPlace(Champion champion) {
         for(ChampionOrigins championOrigins: ORIGINS_ARRAY_LIST) {
-            if(championOrigins.getOriginName().equals(champion.getOriginName()[0])) {
-                championOrigins.addChampion(champion);
-                break;
+            for(int i=0;i<champion.getOriginName().length;i++){
+                if(championOrigins.getOriginName().equals(champion.getOriginName()[i])) {
+                    championOrigins.addChampion(champion);
+                }
             }
         }
         for(ChampionClasses championClasses: CLASSES_ARRAY_LIST) {
-            if(championClasses.getName().equals(champion.getClassName()[0])) {
-                championClasses.addChampion(champion);
-            }
-            if(champion.getClassName().length > 1) {
-                if(championClasses.getName().equals(champion.getClassName()[1])) {
+            for(int i=0;i<champion.getClassName().length;i++){
+                if(championClasses.getName().equals(champion.getClassName()[i])) {
                     championClasses.addChampion(champion);
                 }
             }
@@ -165,6 +180,8 @@ public class HubMain_Activity extends AppCompatActivity {
         return json;
 
     }
+
+
 
     private void setupLists() {
         ORIGINS_ARRAY_LIST.add(DEMON);
@@ -220,6 +237,7 @@ public class HubMain_Activity extends AppCompatActivity {
         int rangerCount = 0;
         int shapeshifterCount = 0;
         int sorcererCount = 0;
+        int hextechCount=0;
         for (Champion i : currentList) {
             for (String name : i.getOriginName()) {
                 switch (name) {
@@ -275,6 +293,10 @@ public class HubMain_Activity extends AppCompatActivity {
                         yordleCount++;
                         break;
                     }
+                    case "Hextech":{
+                        hextechCount++;
+                        break;
+                    }
                 }
             }
             for (String className : i.getClassName()) {
@@ -325,7 +347,7 @@ public class HubMain_Activity extends AppCompatActivity {
 
         }
         checkSynergies(demonCount, dragonCount, exileCount, glacialCount, robotCount, imperialCount, nobleCount,
-                ninjaCount, pirateCount, phantomCount, wildCount, voidCount, yordleCount, assassinCount, blademasterCount, brawlerCount, elementalistCount, guardianCount, gunslingerCount, knightCount, rangerCount, shapeshifterCount, sorcererCount);
+                ninjaCount, pirateCount, phantomCount, wildCount, voidCount, yordleCount, assassinCount, blademasterCount, brawlerCount, elementalistCount, guardianCount, gunslingerCount, knightCount, rangerCount, shapeshifterCount, sorcererCount,hextechCount);
         //update Champions in holder text
         updateNumberOfChampsInHolderText(currentList);
         updateChampionImages(currentList);
@@ -395,7 +417,8 @@ public class HubMain_Activity extends AppCompatActivity {
                                int knightCount,
                                int rangerCount,
                                int shapeshifterCount,
-                               int sorcererCount) {
+                               int sorcererCount,
+                               int hextechCount) {
         synergySelectedLayout.removeAllViewsInLayout();
         //check ORIGINS
         if (demonCount >= 6) {
@@ -521,6 +544,17 @@ public class HubMain_Activity extends AppCompatActivity {
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
         }
+        if (hextechCount >=4){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.hextech_4_text, hextechCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        } else if (hextechCount >=2){
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.hextech_2_text, hextechCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        }
         //check CLASSES
         if (assassinCount >= 6) {
             TextView text = new TextView(synergySelectedLayout.getContext());
@@ -533,7 +567,12 @@ public class HubMain_Activity extends AppCompatActivity {
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
         }
-        if (blademasterCount >= 6) {
+        if (blademasterCount >= 9) {
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.blademaster_9_text, blademasterCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        } else if (blademasterCount >= 6) {
             TextView text = new TextView(synergySelectedLayout.getContext());
             String textTjom = getString(R.string.blademaster_6_text, blademasterCount);
             text.setText(textTjom);
@@ -544,7 +583,12 @@ public class HubMain_Activity extends AppCompatActivity {
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
         }
-        if (brawlerCount >= 4) {
+        if (brawlerCount >= 6) {
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.brawler_6_text, brawlerCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        } else if (brawlerCount >= 4) {
             TextView text = new TextView(synergySelectedLayout.getContext());
             String textTjom = getString(R.string.brawler_4_text, brawlerCount);
             text.setText(textTjom);
@@ -567,7 +611,12 @@ public class HubMain_Activity extends AppCompatActivity {
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
         }
-        if (gunslingerCount >= 4) {
+        if (gunslingerCount >= 6) {
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.gunslinger_6_text, gunslingerCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        } else if (gunslingerCount >= 4) {
             TextView text = new TextView(synergySelectedLayout.getContext());
             String textTjom = getString(R.string.gunslinger_4_text, gunslingerCount);
             text.setText(textTjom);
@@ -605,7 +654,12 @@ public class HubMain_Activity extends AppCompatActivity {
             text.setText(textTjom);
             synergySelectedLayout.addView(text);
         }
-        if (shapeshifterCount >= 3) {
+        if (shapeshifterCount >= 6) {
+            TextView text = new TextView(synergySelectedLayout.getContext());
+            String textTjom = getString(R.string.shapeshifter_6_text, shapeshifterCount);
+            text.setText(textTjom);
+            synergySelectedLayout.addView(text);
+        } else if (shapeshifterCount >= 3) {
             TextView text = new TextView(synergySelectedLayout.getContext());
             String textTjom = getString(R.string.shapeshifter_3_text, shapeshifterCount);
             text.setText(textTjom);
@@ -791,6 +845,7 @@ public class HubMain_Activity extends AppCompatActivity {
 
         classSelectorLayoutScroll.setVisibility(View.INVISIBLE);
         originSelectorLayoutScroll.setVisibility(View.VISIBLE);
+
 
         classButton.setBackground(getResources().getDrawable(R.drawable.button_default_shape, this.getTheme()));
         originButton.setBackground(getResources().getDrawable(R.drawable.button_selected_shape, this.getTheme()));
