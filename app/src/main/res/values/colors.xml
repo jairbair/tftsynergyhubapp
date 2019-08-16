@@ -14,4 +14,5 @@
     <color name="rarity_blue">#26B9DB</color>
     <color name="rarity_purple">#9D64CE</color>
     <color name="rarity_gold">#F2E418</color>
+    <color name="transparent">#00F21818</color>
 </resources>
