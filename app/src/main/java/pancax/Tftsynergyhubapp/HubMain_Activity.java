@@ -38,37 +38,37 @@ public class HubMain_Activity extends AppCompatActivity {
     //instantiate champions and data for champions
     //holder for Origins and Classes
 
-    static ArrayList<ChampionOrigins> ORIGINS_ARRAY_LIST = new ArrayList<>();
-    static ArrayList<ChampionClasses> CLASSES_ARRAY_LIST = new ArrayList<>();
+    static ArrayList<ChampionOrigins> ORIGINS_ARRAY_LIST;
+    static ArrayList<ChampionClasses> CLASSES_ARRAY_LIST;
     //Setup Origins groupers
-    static final ChampionOrigins DEMON = new ChampionOrigins("Demon");
-    static final ChampionOrigins DRAGON = new ChampionOrigins("Dragon");
-    static final ChampionOrigins EXILE = new ChampionOrigins("Exile");
-    static final ChampionOrigins GLACIAL = new ChampionOrigins("Glacial");
-    static final ChampionOrigins ROBOT = new ChampionOrigins("Robot");
-    static final ChampionOrigins IMPERIAL = new ChampionOrigins("Imperial");
-    static final ChampionOrigins NOBLE = new ChampionOrigins("Noble");
-    static final ChampionOrigins NINJA = new ChampionOrigins("Ninja");
-    static final ChampionOrigins PIRATE = new ChampionOrigins("Pirate");
-    static final ChampionOrigins PHANTOM = new ChampionOrigins("Phantom");
-    static final ChampionOrigins WILD = new ChampionOrigins("Wild");
-    static final ChampionOrigins VOID = new ChampionOrigins("Void");
-    static final ChampionOrigins YORDLE = new ChampionOrigins("Yordle");
-    static final ChampionOrigins HEXTECH = new ChampionOrigins("Hextech");
+    final ChampionOrigins DEMON = new ChampionOrigins("Demon");
+    final ChampionOrigins DRAGON = new ChampionOrigins("Dragon");
+    final ChampionOrigins EXILE = new ChampionOrigins("Exile");
+    final ChampionOrigins GLACIAL = new ChampionOrigins("Glacial");
+    final ChampionOrigins ROBOT = new ChampionOrigins("Robot");
+    final ChampionOrigins IMPERIAL = new ChampionOrigins("Imperial");
+    final ChampionOrigins NOBLE = new ChampionOrigins("Noble");
+    final ChampionOrigins NINJA = new ChampionOrigins("Ninja");
+    final ChampionOrigins PIRATE = new ChampionOrigins("Pirate");
+    final ChampionOrigins PHANTOM = new ChampionOrigins("Phantom");
+    final ChampionOrigins WILD = new ChampionOrigins("Wild");
+    final ChampionOrigins VOID = new ChampionOrigins("Void");
+    final ChampionOrigins YORDLE = new ChampionOrigins("Yordle");
+    final ChampionOrigins HEXTECH = new ChampionOrigins("Hextech");
     //Setup Classes groupers
-    static final ChampionClasses ASSASSIN = new ChampionClasses("Assassin");
-    static final ChampionClasses BLADEMASTER = new ChampionClasses("Blademaster");
-    static final ChampionClasses BRAWLER = new ChampionClasses("Brawler");
-    static final ChampionClasses ELEMENTALIST = new ChampionClasses("Elementalist");
-    static final ChampionClasses GUARDIAN = new ChampionClasses("Guardian");
-    static final ChampionClasses GUNSLINGER = new ChampionClasses("Gunslinger");
-    static final ChampionClasses KNIGHT = new ChampionClasses("Knight");
-    static final ChampionClasses RANGER = new ChampionClasses("Ranger");
-    static final ChampionClasses SHAPESHIFTER = new ChampionClasses("Shapeshifter");
-    static final ChampionClasses SORCERER = new ChampionClasses("Sorcerer");
+    final ChampionClasses ASSASSIN = new ChampionClasses("Assassin");
+    final ChampionClasses BLADEMASTER = new ChampionClasses("Blademaster");
+    final ChampionClasses BRAWLER = new ChampionClasses("Brawler");
+    final ChampionClasses ELEMENTALIST = new ChampionClasses("Elementalist");
+    final ChampionClasses GUARDIAN = new ChampionClasses("Guardian");
+    final ChampionClasses GUNSLINGER = new ChampionClasses("Gunslinger");
+    final ChampionClasses KNIGHT = new ChampionClasses("Knight");
+    final ChampionClasses RANGER = new ChampionClasses("Ranger");
+    final ChampionClasses SHAPESHIFTER = new ChampionClasses("Shapeshifter");
+    final ChampionClasses SORCERER = new ChampionClasses("Sorcerer");
 
     // Do actually important stuff
-    ChampionHolder holder = new ChampionHolder();
+    static ChampionHolder holder = new ChampionHolder();
     TextView numberOfChampsInHolderText;
     LinearLayout championSelectedLayout;
     LinearLayout originSelectorLayout;
@@ -84,9 +84,13 @@ public class HubMain_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hub_main_);
+        CLASSES_ARRAY_LIST= new ArrayList<>();
+        ORIGINS_ARRAY_LIST= new ArrayList<>();
         //setupChampions();
         setupLists();
         createChampions();
+
+
         numberOfChampsInHolderText = findViewById(R.id.numberOfChampsText);
         originSelectorLayout = findViewById(R.id.originSelectorLayout);
         championSelectedLayout = findViewById(R.id.championSelectedLayout);
@@ -102,6 +106,9 @@ public class HubMain_Activity extends AppCompatActivity {
         makeOriginSelectorLayout();
         makeClassSelectorLayout();
         updateNumberOfChampsInHolderText(holder.getCurrentChampionList());
+        updateHolder();
+        updateAllChampionImages(classSelectorLayout);
+        updateAllChampionImages(originSelectorLayout);
 
     }
     private void sortChampions(){
