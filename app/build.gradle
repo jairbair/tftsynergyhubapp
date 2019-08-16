@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "pancax.TFTBuddy"
+        applicationId "pancax.Tftsynergyhubapp"
         minSdkVersion 23
         targetSdkVersion 28
         versionCode 1
@@ -12,20 +12,18 @@ android {
     }
     signingConfigs {
         release {
-            keyPassword '1015001DakotaSkyrim2001'
-            storeFile file('C:\\Users\\dakot\\Desktop\\TFT Buddy APP Important\\release')
+            keyPassword 'Dakota299'
+            storeFile file('C:\\Users\\dakot\\Desktop\\TFT Buddy APP Important\\TFTBuddyKeystoreREAL.jks')
             storePassword 'Dakota299'
-            keyAlias 'Dakota Soles'
+            keyAlias 'upload'
         }
     }
     buildTypes {
         release {
             signingConfig signingConfigs.release
         }
-        debug{
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
+
+
     }
 }
 

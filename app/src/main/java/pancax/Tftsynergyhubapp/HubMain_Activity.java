@@ -214,7 +214,6 @@ public class HubMain_Activity extends AppCompatActivity {
                 putChampionInItsPlace(champion);
             }
         } catch (Exception e) {
-            Log.d("JSON ERROR","JSON THING DIDN'T WORK!");
         }
 
     }
