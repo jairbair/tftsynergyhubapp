@@ -5,7 +5,7 @@
     <string name="ClassButtonStirng">Class</string>
     <string name="TeamBuilderButtonString">Team Builder</string>
     <string name="DropRatesButtonString">Drop Rates</string>
-    <string name="ChampionHolderNumber">0/10\t\t</string>
+    <string name="ChampionHolderNumber">%1d /10\t\t</string>
 
     <string name="demon_6_text">(%1d) Demon - Attacks from Demons have a 40%% chance to burn 20 mana and return 45 to the attacker</string>
     <string name="demon_4_text">(%1d) Demon - Attacks from Demons have a 40%% chance to burn 20 mana and return 30 to the attacker</string>

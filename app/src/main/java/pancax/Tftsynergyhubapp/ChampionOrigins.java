@@ -5,14 +5,14 @@ import java.util.ArrayList;
 public class ChampionOrigins {
     private ArrayList<Champion> championArrayList;
     private String originName;
-    public ChampionOrigins(String name){
+    ChampionOrigins(String name){
         originName=name;
         championArrayList=new ArrayList<>(1);
     }
-    public void addChampion(Champion champion){
+    void addChampion(Champion champion){
         championArrayList.add(champion);
     }
-    public ArrayList<Champion> getList(){
+    ArrayList<Champion> getList(){
         return championArrayList;
     }
     public String toString(){
@@ -20,7 +20,7 @@ public class ChampionOrigins {
 
     }
 
-    public String getOriginName(){
+    String getOriginName(){
         return originName;
     }
 }

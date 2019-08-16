@@ -8,7 +8,7 @@ public class Champion {
 
 
 
-    public Champion(String name, String[] classNames, String[] originNames, int rarity) {
+    Champion(String name, String[] classNames, String[] originNames, int rarity) {
         this.name=name;
         this.className=classNames;
         this.originName=originNames;
@@ -17,14 +17,14 @@ public class Champion {
     public String getName(){
         return this.name;
     }
-    public String[] getClassName()
+    String[] getClassName()
     {
         return this.className;
     }
-    public String[] getOriginName(){
+    String[] getOriginName(){
         return this.originName;
     }
-    public int getRarity() { return this.rarity; }
+    int getRarity() { return this.rarity; }
     public String toString(){
         return name;
     }

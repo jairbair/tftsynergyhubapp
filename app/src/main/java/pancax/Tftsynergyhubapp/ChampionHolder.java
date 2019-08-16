@@ -5,10 +5,10 @@ import java.util.ArrayList;
 public class ChampionHolder {
     private ArrayList<Champion> currentChampionList;
 
-    public ChampionHolder(){
+    ChampionHolder(){
         currentChampionList = new ArrayList<>(0);
     }
-    public ArrayList<Champion> getCurrentChampionList(){
+    ArrayList<Champion> getCurrentChampionList(){
         return currentChampionList;
     }
 
@@ -29,7 +29,7 @@ public class ChampionHolder {
         }
         return false;
     }
-    public boolean isChampionInList(String name){
+    boolean isChampionInList(String name){
         for(int i=0;i<currentChampionList.size();i++){
             if(name.equals(currentChampionList.get(i).getName())){
                 return true;
@@ -37,7 +37,7 @@ public class ChampionHolder {
         }
         return false;
     }
-    public boolean addChampionToList(String championName){
+    boolean addChampionToList(String championName){
         if(currentChampionList.size()<10) {
             for(ChampionOrigins x:HubMain_Activity.ORIGINS_ARRAY_LIST){
                 for(Champion z: x.getList()){
@@ -54,7 +54,7 @@ public class ChampionHolder {
         }
         return false;
     }
-    public boolean removeChampionFromList(String name){
+    boolean removeChampionFromList(String name){
         for(int i=0;i<currentChampionList.size();i++){
             if(currentChampionList.get(i).getName().equals(name)){
                 currentChampionList.remove(i);
@@ -63,7 +63,7 @@ public class ChampionHolder {
         }
         return false;
     }
-    public boolean isChampionInList(Champion champion){
+    boolean isChampionInList(Champion champion){
         for(int i=0;i<currentChampionList.size();i++){
             if(champion.getName().equals(currentChampionList.get(i).getName())){
                 return true;

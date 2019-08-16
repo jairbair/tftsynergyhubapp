@@ -4,7 +4,7 @@ package pancax.Tftsynergyhubapp;
 import android.content.Context;
 
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -14,13 +14,12 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebStorage;
+
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.WrapperListAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -28,8 +27,10 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
+import java.util.Collections;
+import java.util.Comparator;
+
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 
 public class HubMain_Activity extends AppCompatActivity {
@@ -97,11 +98,55 @@ public class HubMain_Activity extends AppCompatActivity {
         classButton = findViewById(R.id.classButton);
         //true for origin false for class
         originOrClass = false;
+        sortChampions();
         makeOriginSelectorLayout();
         makeClassSelectorLayout();
+        updateNumberOfChampsInHolderText(holder.getCurrentChampionList());
 
     }
+    private void sortChampions(){
+        for(ChampionOrigins x:ORIGINS_ARRAY_LIST){
+            Collections.sort(x.getList(),new Comparator<Champion>() {
 
+                @Override
+                public int compare(Champion champion, Champion t1) {
+                    if(champion.getRarity()<t1.getRarity()){
+                        return 1;
+                    }
+                    if(champion.getRarity()>t1.getRarity()){
+                        return -1;
+                    }
+                    if(champion.getName().compareTo(t1.getName())<0){
+                        return -1;
+                    }
+                    if(champion.getName().compareTo(t1.getName())>0){
+                        return 1;
+                    }
+                    return 0;
+                }
+            });
+        }
+        for(ChampionClasses x:CLASSES_ARRAY_LIST){
+            Collections.sort(x.getList(),new Comparator<Champion>() {
+                @Override
+                public int compare(Champion champion, Champion t1) {
+                    if(champion.getRarity()<t1.getRarity()){
+                        return 1;
+                    }
+                    if(champion.getRarity()>t1.getRarity()){
+                        return -1;
+                    }
+                    if(champion.getName().compareTo(t1.getName())<0){
+                        return -1;
+                    }
+                    if(champion.getName().compareTo(t1.getName())>0){
+                        return 1;
+                    }
+                    return 0;
+                }
+            });
+        }
+    }
     private void createChampions() {
         try {
             JSONObject jsonObject = new JSONObject(loadJSONFromAsset(this));
@@ -116,7 +161,7 @@ public class HubMain_Activity extends AppCompatActivity {
                     String arg1 = s.substring(0, s.indexOf('-'));
                     String arg2 = s.substring(s.indexOf('-')+1);
                     String[] className = {arg1, arg2};
-                    String[] originName = null;
+                    String[] originName;
                     if(jsonChamp.getString("origin").contains("-")) {
                         String s2 = jsonChamp.getString("origin");
                         String arg1s = s2.substring(0, s2.indexOf('-'));
@@ -129,7 +174,7 @@ public class HubMain_Activity extends AppCompatActivity {
                 }
                 else {
                     String[] className = {jsonChamp.getString("class")};
-                    String[] originName= null;
+                    String[] originName;
                     if(jsonChamp.getString("origin").contains("-")) {
                         String s2 = jsonChamp.getString("origin");
                         String arg1s = s2.substring(0, s2.indexOf('-'));
@@ -166,14 +211,14 @@ public class HubMain_Activity extends AppCompatActivity {
     }
 
     private String loadJSONFromAsset(Context context) {
-        String json = null;
+        String json;
         try {
             InputStream is = context.getAssets().open("champions.json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
             is.close();
-            json = new String(buffer, "UTF-8");
+            json = new String(buffer, UTF_8);
         } catch (IOException ex) {
             ex.printStackTrace();
             return null;
@@ -386,7 +431,7 @@ public class HubMain_Activity extends AppCompatActivity {
                 });
 
                 Champion champion= champions.get(i + counter * diviser);
-                button.setForeground(champion.getRarity() ==5 ? getDrawable(R.drawable.border_gold):champion.getRarity() ==4 ? getDrawable(R.drawable.border_purple):champion.getRarity() ==3 ? getDrawable(R.drawable.border_blue):champion.getRarity() ==2 ? getDrawable(R.drawable.border_green):getDrawable(R.drawable.border_gray));
+                button.setForeground(champion.getRarity() ==1 ? getDrawable(R.drawable.border_gold):champion.getRarity() ==2 ? getDrawable(R.drawable.border_purple):champion.getRarity() ==3 ? getDrawable(R.drawable.border_blue):champion.getRarity() ==4 ? getDrawable(R.drawable.border_green):getDrawable(R.drawable.border_gray));
                 LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams((int) getResources().getDimension(R.dimen.champion_selected_width), (int) getResources().getDimension(R.dimen.champion_selected_height));
                 buttonParams.setMargins(8, 8, 8, 8);
                 holderView.addView(button, buttonParams);
@@ -683,7 +728,8 @@ public class HubMain_Activity extends AppCompatActivity {
     }
 
     public void updateNumberOfChampsInHolderText(ArrayList<Champion> currentList) {
-        numberOfChampsInHolderText.setText(currentList.size() + "/10\t\t");
+        String textTjom = getString(R.string.ChampionHolderNumber, currentList.size());
+        numberOfChampsInHolderText.setText(textTjom);
     }
 
     public void makeOriginSelectorLayout() {
@@ -834,18 +880,19 @@ public class HubMain_Activity extends AppCompatActivity {
                     View childviewchild = chillview.getChildAt(j);
                     if(childviewchild instanceof ImageButton) {
                         if (holder.isChampionInList(childviewchild.getTag().toString())) {
-                            Champion champion =null;
+                            Champion champion = new Champion("",new String[]{""},new String[]{""},-1);
                             for(ChampionOrigins x: ORIGINS_ARRAY_LIST){
                                 for(int z=0;z<x.getList().size();z++){
                                     if(childviewchild.getTag().toString().equals(x.getList().get(z).getName())){
                                         champion = x.getList().get(z);
                                     }
+
                                 }
                             }
                             childviewchild.setForeground(champion.getRarity() ==1 ? getDrawable(R.drawable.x_border_gold):champion.getRarity() ==2 ? getDrawable(R.drawable.x_border_purple):champion.getRarity() ==3 ? getDrawable(R.drawable.x_border_blue):champion.getRarity() ==4 ? getDrawable(R.drawable.x_border_green):getDrawable(R.drawable.x_border_gray));
                         } else {
 
-                            Champion champion =null;
+                            Champion champion = new Champion("",new String[]{""},new String[]{""},-1);
                             for(ChampionOrigins x: ORIGINS_ARRAY_LIST){
                                 for(int z=0;z<x.getList().size();z++){
                                     if(childviewchild.getTag().toString().equals(x.getList().get(z).getName())){
