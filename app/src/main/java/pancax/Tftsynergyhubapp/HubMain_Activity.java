@@ -105,6 +105,32 @@ public class HubMain_Activity extends AppCompatActivity {
 
     }
     private void sortChampions(){
+        Collections.sort(ORIGINS_ARRAY_LIST,new Comparator<ChampionOrigins>(){
+
+            @Override
+            public int compare(ChampionOrigins championOrigins, ChampionOrigins t1) {
+                if(championOrigins.getOriginName().compareTo(t1.getOriginName())<0){
+                    return -1;
+                }
+                if(championOrigins.getOriginName().compareTo(t1.getOriginName())>0){
+                    return 1;
+                }
+                return 0;
+            }
+        });
+        Collections.sort(CLASSES_ARRAY_LIST,new Comparator<ChampionClasses>(){
+
+            @Override
+            public int compare(ChampionClasses t1, ChampionClasses t2) {
+                if(t1.getName().compareTo(t2.getName())<0){
+                    return -1;
+                }
+                if(t1.getName().compareTo(t2.getName())>0){
+                    return 1;
+                }
+                return 0;
+            }
+        });
         for(ChampionOrigins x:ORIGINS_ARRAY_LIST){
             Collections.sort(x.getList(),new Comparator<Champion>() {
 
