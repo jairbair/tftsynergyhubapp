@@ -9,10 +9,10 @@
     <color name="darkless_gray_color">#3F3F3F</color>
     <color name="darkless_gray_color_trans">#803F3F3F</color>
     <color name="red">#ff0000</color>
-    <color name="rarity_gray">#878477</color>
+    <color name="rarity_gray">#B5B5B5</color>
     <color name="rarity_green">#21AF59</color>
     <color name="rarity_blue">#26B9DB</color>
-    <color name="rarity_purple">#9D64CE</color>
+    <color name="rarity_purple">#B518F2</color>
     <color name="rarity_gold">#F2E418</color>
     <color name="transparent">#00F21818</color>
 </resources>
