@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebStorage;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -384,6 +385,8 @@ public class HubMain_Activity extends AppCompatActivity {
                     }
                 });
 
+                Champion champion= champions.get(i + counter * diviser);
+                button.setForeground(champion.getRarity() ==5 ? getDrawable(R.drawable.border_gold):champion.getRarity() ==5 ? getDrawable(R.drawable.border_purple):champion.getRarity() ==3 ? getDrawable(R.drawable.border_blue):champion.getRarity() ==2 ? getDrawable(R.drawable.border_green):getDrawable(R.drawable.border_gray));
                 LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams((int) getResources().getDimension(R.dimen.champion_selected_width), (int) getResources().getDimension(R.dimen.champion_selected_height));
                 buttonParams.setMargins(8, 8, 8, 8);
                 holderView.addView(button, buttonParams);
@@ -731,6 +734,8 @@ public class HubMain_Activity extends AppCompatActivity {
                             }
                         }
                     });
+                    Champion champion= champions.get(j + counter * diviser);
+                    button.setForeground(champion.getRarity() ==5 ? getDrawable(R.drawable.border_gold):champion.getRarity() ==5 ? getDrawable(R.drawable.border_purple):champion.getRarity() ==3 ? getDrawable(R.drawable.border_blue):champion.getRarity() ==2 ? getDrawable(R.drawable.border_green):getDrawable(R.drawable.border_gray));
                     originView.addView(button, buttonParams);
 
                     String nameThing = "avatar_" + champions.get(j + counter * diviser).getName().toLowerCase().replaceAll("[^a-z]", "") + "";
@@ -795,6 +800,9 @@ public class HubMain_Activity extends AppCompatActivity {
                             }
                         }
                     });
+
+                    Champion champion= champions.get(j + counter * diviser);
+                    button.setForeground(champion.getRarity() ==5 ? getDrawable(R.drawable.border_gold):champion.getRarity() ==5 ? getDrawable(R.drawable.border_purple):champion.getRarity() ==3 ? getDrawable(R.drawable.border_blue):champion.getRarity() ==2 ? getDrawable(R.drawable.border_green):getDrawable(R.drawable.border_gray));
                     classView.addView(button, buttonParams);
                     String nameThing = "avatar_" + champions.get(j + counter * diviser).getName().toLowerCase().replaceAll("[^a-z]", "") + "";
                     int id = getResources().getIdentifier(nameThing, "drawable", classView.getContext().getPackageName());
@@ -834,7 +842,16 @@ public class HubMain_Activity extends AppCompatActivity {
                         if (holder.isChampionInList(childviewchild.getTag().toString())) {
                             childviewchild.setForeground(getDrawable(R.drawable.red_x_drawable));
                         } else {
-                            childviewchild.setForeground(new ColorDrawable(Color.TRANSPARENT));
+
+                            Champion champion =null;
+                            for(ChampionOrigins x: ORIGINS_ARRAY_LIST){
+                                for(int z=0;z<x.getList().size();z++){
+                                    if(childviewchild.getTag().toString().equals(x.getList().get(z).getName())){
+                                        champion = x.getList().get(z);
+                                    }
+                                }
+                            }
+                            childviewchild.setForeground(champion.getRarity() ==5 ? getDrawable(R.drawable.border_gold):champion.getRarity() ==5 ? getDrawable(R.drawable.border_purple):champion.getRarity() ==3 ? getDrawable(R.drawable.border_blue):champion.getRarity() ==2 ? getDrawable(R.drawable.border_green):getDrawable(R.drawable.border_gray));
                         }
                     }
                 }
