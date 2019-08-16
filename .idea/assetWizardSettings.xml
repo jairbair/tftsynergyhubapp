@@ -62,7 +62,7 @@
                                             <option name="values">
                                               <map>
                                                 <entry key="color" value="000000" />
-                                                <entry key="scalingPercent" value="88" />
+                                                <entry key="scalingPercent" value="60" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -73,7 +73,8 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
-                                      <entry key="foregroundImage" value="C:\Users\Succ\Desktop\LOL Pictures\rect1560.png" />
+                                      <entry key="backgroundColor" value="292929" />
+                                      <entry key="foregroundImage" value="C:\Users\Succ\Desktop\LOL Pictures\tftlogo.png" />
                                     </map>
                                   </option>
                                 </PersistentState>
