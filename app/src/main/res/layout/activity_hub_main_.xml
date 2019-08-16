@@ -71,13 +71,12 @@
             android:paddingRight="2dp"></LinearLayout>
     </ScrollView>
 
-    <View style="@style/Divider"
+    <View
         android:id="@+id/divider_info"
+        style="@style/Divider"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/classSelectorLayoutScroll"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -111,9 +110,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/buttons_layout"
+        app:layout_constraintBottom_toBottomOf="@id/classSelectorLayoutScroll"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider_info">
@@ -134,8 +132,7 @@
         app:layout_constraintBottom_toTopOf="@+id/buttons_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/originSelectorLayoutScroll" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/buttons_layout"
