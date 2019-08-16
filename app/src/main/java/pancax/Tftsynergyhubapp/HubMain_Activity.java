@@ -764,10 +764,13 @@ public class HubMain_Activity extends AppCompatActivity {
 
             ChampionOrigins origin = ORIGINS_ARRAY_LIST.get(i);
             ArrayList<Champion> champions = origin.getList();
+
             LinearLayout.LayoutParams textViewParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             textViewParams.setMargins(8, 0, 8, 16);
+
             LinearLayout.LayoutParams buttonParams = new LinearLayout.LayoutParams((int) getResources().getDimension(R.dimen.champion_selector_width), (int) getResources().getDimension(R.dimen.champion_selector_height));
             buttonParams.setMargins(8, 0, 8, 8);
+
             int repeats = champions.size();
             int counter = -1;
             DisplayMetrics displayMetrics = new DisplayMetrics();
