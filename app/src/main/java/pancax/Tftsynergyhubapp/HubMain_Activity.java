@@ -3,6 +3,7 @@ package pancax.Tftsynergyhubapp;
 
 import android.content.Context;
 
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 
 import android.os.Bundle;
@@ -86,10 +87,10 @@ public class HubMain_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_hub_main_);
         CLASSES_ARRAY_LIST= new ArrayList<>();
         ORIGINS_ARRAY_LIST= new ArrayList<>();
-        //setupChampions();
+
         setupLists();
         createChampions();
-
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         numberOfChampsInHolderText = findViewById(R.id.numberOfChampsText);
         originSelectorLayout = findViewById(R.id.originSelectorLayout);
