@@ -42,6 +42,9 @@ public class HubMain_Activity extends AppCompatActivity {
     static ArrayList<ChampionOrigins> ORIGINS_ARRAY_LIST;
     static ArrayList<ChampionClasses> CLASSES_ARRAY_LIST;
     //Setup Origins groupers
+    /*
+    * These are origin groupers
+    * */
     final ChampionOrigins DEMON = new ChampionOrigins("Demon");
     final ChampionOrigins DRAGON = new ChampionOrigins("Dragon");
     final ChampionOrigins EXILE = new ChampionOrigins("Exile");
@@ -263,6 +266,10 @@ public class HubMain_Activity extends AppCompatActivity {
 
 
     private void setupLists() {
+        /*
+        * TODO:: replace with automatic adder from txt file containing all info
+        * */
+
         ORIGINS_ARRAY_LIST.add(DEMON);
         ORIGINS_ARRAY_LIST.add(DRAGON);
         ORIGINS_ARRAY_LIST.add(EXILE);
@@ -277,7 +284,9 @@ public class HubMain_Activity extends AppCompatActivity {
         ORIGINS_ARRAY_LIST.add(VOID);
         ORIGINS_ARRAY_LIST.add(YORDLE);
         ORIGINS_ARRAY_LIST.add(HEXTECH);
-
+        /*
+        *
+        * */
         CLASSES_ARRAY_LIST.add(ASSASSIN);
         CLASSES_ARRAY_LIST.add(BLADEMASTER);
         CLASSES_ARRAY_LIST.add(BRAWLER);
